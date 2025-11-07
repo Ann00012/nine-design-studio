@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/nine-desing-studio/",
+    "build": "vite build --base=/nine-design-studio/",
     "preview": "vite preview"
   },
   "devDependencies": {
