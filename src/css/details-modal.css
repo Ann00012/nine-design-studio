@@ -15,6 +15,7 @@
   pointer-events: none;
   transition: opacity 250ms ease-in-out;
   overscroll-behavior: contain;
+   
 }
 
 .modal-overlay.is-open {
@@ -27,7 +28,7 @@
   overflow-y: auto;
   border-radius: 8px;
   padding: 64px 20px 44px 20px;
-  position: inherit;
+  position: relative;
 }
 
 .close-button {
@@ -52,4 +53,22 @@
   opacity: 50%;
 }
 
+.modal-contant-title {
+  font-size: 32px;
+  line-height: 130%;
+  letter-spacing: 0.01em;
+  color: rgba(8, 12, 9, 1);
+}
 
+.modal-contant-text {
+  color: rgba(8, 12, 9, 1);
+  line-height: 160%;
+  letter-spacing: 0;
+}
+
+.modal-contant-text.price {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 140%;
+  letter-spacing: 0.01em;
+}
