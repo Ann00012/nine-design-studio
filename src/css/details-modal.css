@@ -15,7 +15,6 @@
   pointer-events: none;
   transition: opacity 250ms ease-in-out;
   overscroll-behavior: contain;
-   
 }
 
 .modal-overlay.is-open {
@@ -71,4 +70,54 @@
   font-size: 24px;
   line-height: 140%;
   letter-spacing: 0.01em;
+}
+
+.modal-contant-button {
+  font-weight: 500;
+  line-height: 160%;
+  letter-spacing: 0;
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(107, 6, 9, 1);
+  box-shadow: 0px 1px 2px 0px rgba(8, 12, 9, 0.05),
+    inset 0px -2px 1px 0px rgba(0, 0, 0, 0.2),
+    inset 0px 0px 0px 1px rgba(8, 12, 9, 0.15),
+    inset 0px 2px 1px 0px rgba(255, 255, 255, 0.25),
+    inset 0px 32px 24px 0px rgba(255, 255, 255, 0.05);
+  padding: 10px 54px;
+  border-radius: 100px;
+  border: none;
+  margin-top: 24px;
+}
+
+.modal-contant-text.dimensions {
+  margin-top: 32px;
+}
+
+.modal-contant-text.description,
+.modal-contant-text.color {
+  margin-top: 24px;
+}
+
+.modal-contant .wrapper-checkbox {
+  margin-top: 8px;
+}
+
+.modal-contant .wrapper-checkbox {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.wrapper-checkbox input {
+  width: 32px;
+  height: 32px;
+  border: 1px;
+  border-radius: 64px;
+  background-color: rgba(199, 170, 128, 1);
+  appearance: none;           /* прибирає стандартний стиль */
+  -webkit-appearance: none;
+}
+
+.wrapper-checkbox input:checked {
+  border: 4px solid rgba(131, 133, 132, 1);
 }
