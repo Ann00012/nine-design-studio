@@ -27,7 +27,7 @@
   overflow-y: auto;
   border-radius: 8px;
   padding: 64px 20px 44px 20px;
-  position: inherit;
+  position: relative;
 }
 
 .close-button {
@@ -52,4 +52,201 @@
   opacity: 50%;
 }
 
+.modal-contant-title {
+  font-size: 32px;
+  line-height: 130%;
+  margin-top: 24px;
+  letter-spacing: 0.01em;
+  color: rgba(8, 12, 9, 1);
+}
 
+.modal-contant-text {
+  color: rgba(8, 12, 9, 1);
+  line-height: 160%;
+  letter-spacing: 0;
+}
+
+.modal-contant-text.price {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 140%;
+  letter-spacing: 0.01em;
+}
+
+.modal-contant-button {
+  font-weight: 500;
+  line-height: 160%;
+  letter-spacing: 0;
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(107, 6, 9, 1);
+  box-shadow: 0px 1px 2px 0px rgba(8, 12, 9, 0.05),
+    inset 0px -2px 1px 0px rgba(0, 0, 0, 0.2),
+    inset 0px 0px 0px 1px rgba(8, 12, 9, 0.15),
+    inset 0px 2px 1px 0px rgba(255, 255, 255, 0.25),
+    inset 0px 32px 24px 0px rgba(255, 255, 255, 0.05);
+  padding: 10px 54px;
+  border-radius: 100px;
+  border: none;
+  margin-top: 24px;
+}
+
+.modal-contant-button:hover,
+.modal-contant-button:focus {
+  opacity: 50%;
+}
+
+.modal-contant-button:active {
+  box-shadow: none;
+}
+
+
+.modal-contant-text.dimensions {
+  margin-top: 32px;
+}
+
+.modal-contant-text.description,
+.modal-contant-text.color {
+  margin-top: 24px;
+}
+
+.description br {
+  display: none;
+}
+
+.modal-contant .wrapper-checkbox {
+  margin-top: 8px;
+}
+
+.modal-contant .wrapper-checkbox {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.wrapper-checkbox input {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(204, 204, 204, 1);
+  border-radius: 64px;
+  background-color: rgba(199, 170, 128, 1);
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.wrapper-checkbox input:checked {
+  border: 4px solid rgba(131, 133, 132, 1);
+}
+
+.wrapper-big-img {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.wrapper-small-img {
+  display: flex;
+  gap: 16px;
+}
+
+.modal-contant .stars {
+  width: 96px;
+  height: 15px;
+  background-image: url(../img/stars.jpg);
+  margin-top: 24px;
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .modal-details {
+    width: 335px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .modal-overlay {
+    padding: 135px 32px;
+  }
+  .modal-details {
+    width: 704px;
+    padding: 64px 32px 32px 32px;
+  }
+
+  .wrapper-small-img img {
+    width: 312px;
+    height: 197px;
+  }
+
+  .modal-contant-button {
+    width: 310px;
+  }
+
+  .description .tablet {
+    display: inline;
+  }
+}
+
+@media (min-width: 1440px) {
+  .modal-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+
+  .modal-details {
+    padding: 64px;
+  }
+
+  .modal-details {
+    width: 1090px;
+  }
+
+  .modal-contant {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center;
+  align-items: center; */
+    gap: 24px;
+  }
+
+  .wrapper-big-img {
+    width: 580px;
+  }
+
+  .wrapper-small-img img {
+    width: 282px;
+  }
+
+  .modal-contant-title {
+    margin: 0;
+  }
+
+  .modal-contant-button {
+    margin-top: 34px;
+  }
+
+  .wrapper-big-img img {
+    max-width: 580px;
+    height: 308px;
+  }
+
+  .wrapper-small-img img {
+    max-width: 282px;
+    height: 197px;
+  }
+
+  .modal-contant .stars {
+    margin-top: 24px;
+  }
+
+  .modal-contant-button {
+    width: 310px;
+  }
+
+  .modal-contant-title {
+  font-size: 40px;
+}
+
+.modal-contant-text.price {
+  font-size: 32px;
+}
+}
