@@ -5,20 +5,19 @@ import iziToast from 'izitoast';
 import raty from 'raty-js';
 
 // my code
+import axios from 'axios';
+import { closeModal } from './js/details-modal';
+closeModal()
 
-import { addClassName, remoweClassName  } from './js/details-modal';
+// Видалити код нище
 
-const modalOverlay = document.querySelector('.modal-overlay');
+const fetchUsers = async () => {
+  const response = await axios.get(
+    'https://furniture-store-v2.b.goit.study/api-docs/furnitures'
+  );
+  return response;
+};
 
-const closeButton = document.querySelector('.close-button');
+fetchUsers().then(users => console.log(users));
 
-
-// Показує модальне вікно, кнопка ще не вибрана
-// closeButton.addEventListener('click', () => { 
-//   addClassName(modalOverlay);
-// }); 
-
-
-closeButton.addEventListener('click', () => {
-    remoweClassName(modalOverlay);
-});
+// Видалити код вище
