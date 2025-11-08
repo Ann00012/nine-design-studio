@@ -1,0 +1,99 @@
+.about {
+  background-color: #f7eded; 
+  padding: 40px 0;
+}
+
+.about__container {
+  max-width: 375px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.about__text {
+  max-width: 100%;
+  margin-bottom: 24px;
+}
+.about__title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #111;
+}
+
+.about__description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 24px;
+}
+
+.about__image-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.about__image {
+  width: 335px;
+  height: 436px;
+  border-radius: var(--radius-large, 16px);
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .about {
+    padding: 60px 0;
+  }
+
+  .about__container {
+    max-width: 720px;
+  }
+
+  .about__title {
+    font-size: 28px;
+  }
+
+  .about__description {
+    font-size: 17px;
+  }
+
+  .about__image {
+    width: 704px;
+    height: 436px;
+    border-radius: var(--radius-large, 16px);
+}
+}
+
+@media (min-width: 1200px) {
+ .about__container {
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+  }
+
+  /* Змінюємо пропорції для бажаного вигляду: Текст ≈ 60%, Зображення ≈ 40% */
+  .about__text {
+    flex: 3; /* Або 1.5. Це надасть текстовому блоку більше місця */
+    /* Використовуючи flex: 3 і flex: 2, ми отримуємо 3/5 (60%) і 2/5 (40%) */
+  }
+
+  .about__image-wrapper {
+    flex: 2; /* Або 1. Це надасть обгортці зображення менше місця */
+  }
+
+  .about__title {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .about__description {
+    font-size: 18px;
+    margin-bottom: 0;
+  }
+  
+  .about__image {
+    width: 644px;
+    height: 436px;
+    border-radius: var(--radius-large, 16px);
+  }
+}
