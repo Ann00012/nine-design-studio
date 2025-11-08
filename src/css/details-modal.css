@@ -42,13 +42,11 @@
 }
 
 .close-button:active svg {
-  fill: rgba(107, 6, 9, 1);
   opacity: 100%;
 }
 
 .close-button:hover svg,
 .close-button:focus svg {
-  fill: rgba(107, 6, 9, 1);
   opacity: 50%;
 }
 
@@ -131,6 +129,7 @@
   background-color: rgba(199, 170, 128, 1);
   appearance: none;
   -webkit-appearance: none;
+  cursor: pointer;
 }
 
 .wrapper-checkbox input:checked {
