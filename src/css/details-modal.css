@@ -116,7 +116,7 @@
 .wrapper-checkbox input {
   width: 32px;
   height: 32px;
-  border: 1px;
+  border: 1px solid rgba(204, 204, 204, 1);
   border-radius: 64px;
   background-color: rgba(199, 170, 128, 1);
   appearance: none;
@@ -231,4 +231,12 @@
   .modal-contant-button {
     width: 310px;
   }
+
+  .modal-contant-title {
+  font-size: 40px;
+}
+
+.modal-contant-text.price {
+  font-size: 32px;
+}
 }
