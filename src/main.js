@@ -5,3 +5,7 @@ import iziToast from 'izitoast';
 import raty from 'raty-js';
 
 import './js/faq-section';
+import { loadAndRenderFurniture } from './js/furniture-list.js';
+// our-furniture section
+loadAndRenderFurniture();
+// end of our-furniture section
