@@ -1,16 +1,15 @@
 .faq-section {
-  width: 100%;
+  max-width: 100%;
   padding: 48px 20px;
 }
 
 .faq-title {
-  /* margin-top: 48px; */
   margin-bottom: 32px;
   text-align: center;
 }
 
 .accordion-container .ac {
-  margin-bottom: 0px;
+  margin-bottom: 0;
   border: 0;
   border-top: 1px solid rgba(8, 12, 9, 0.15);
 }
@@ -20,7 +19,19 @@
 }
 
 .accordion-container .ac .ac-trigger {
-  padding: 20px 56px 20px 0px;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  background: none;
+  appearance: none;
+  cursor: pointer;
+  width: 100%;
+  padding: 20px 6px 20px 0px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  text-align: left;
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
   font-size: 18px;
@@ -29,16 +40,25 @@
 }
 
 .accordion-container .ac .ac-trigger::after {
-  margin-left: 24px;
+  display: none;
+}
 
-  content: '\02C5';
-  float: right;
-  font-size: 14px;
+.accordion-container .ac .ac-trigger:active,
+.accordion-container .ac .ac-trigger:hover,
+.accordion-container .ac .ac-trigger:focus {
+  color: #080c09;
+  background: none;
+  box-shadow: none;
+}
+
+.accordion-container .ac-trigger .chevron-down {
+  margin-left: 24px;
+  justify-self: end;
+  transform: rotate(0deg);
   transition: transform 0.3s ease;
 }
 
-.accordion-container .ac.is-active > .ac-trigger::after {
-  /* content: '\02C4'; */
+.accordion-container .ac.is-active .ac-trigger .chevron-down {
   transform: rotate(180deg);
 }
 
@@ -52,11 +72,37 @@
   color: #080c09;
 }
 
-@media (min-width: 375px) {
+@media screen and (min-width: 768px) and (max-width: 1439.98px) {
+  .faq-section {
+    max-width: 705px;
+    margin: 0 auto;
+    padding: 48px 32px;
+  }
+
+  .accordion-container .ac .ac-trigger {
+    padding: 21.5px 6px 21.5px 0px;
+  }
 }
 
-@media (min-width: 768px) {
-}
+@media screen and (min-width: 1440px) {
+  .faq-section {
+    max-width: 865px;
+    margin: 0 auto;
+    padding: 80px 64px;
+  }
 
-@media (min-width: 1440px) {
+  .accordion-container {
+    max-width: 865px;
+    margin: 0 auto;
+  }
+
+  .accordion-container .ac .ac-trigger:hover {
+    cursor: pointer;
+  }
+
+  .accordion-container .ac .ac-trigger:focus {
+    color: #080c09;
+    background: none;
+    box-shadow: none;
+  }
 }
