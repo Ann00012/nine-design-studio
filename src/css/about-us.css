@@ -6,7 +6,7 @@
 .about__container {
   max-width: 375px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 20px;
 }
 .about__text {
   max-width: 100%;
@@ -41,7 +41,7 @@
 
 @media (min-width: 768px) {
   .about {
-    padding: 60px 0;
+    padding: 32px;
   }
 
   .about__container {
@@ -50,11 +50,11 @@
   }
 
   .about__title {
-    font-size: 28px;
+    font-size: 36px;
   }
 
   .about__description {
-    font-size: 17px;
+    font-size: 18px;
   }
 
   .about__image {
@@ -72,7 +72,7 @@ object-fit:cover;
 
 @media (min-width: 1440px) {
  .about__container {
-    max-width: 1200px;
+    max-width: 1440px;
     display: flex;
     align-items: center;
     justify-content: space-between;
