@@ -72,7 +72,7 @@
   .faq-section {
     max-width: 705px;
     margin: 0 auto;
-    padding: 48px 32px;
+    padding: 48px 0;
   }
 
   .accordion-container .ac .ac-trigger {
@@ -84,7 +84,7 @@
   .faq-section {
     max-width: 865px;
     margin: 0 auto;
-    padding: 80px 64px;
+    padding: 80px 0;
   }
 
   .faq-title {
