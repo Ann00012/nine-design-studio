@@ -1,0 +1,225 @@
+@import 'modern-normalize';
+
+/* ---------- BASE (Mobile-first: 375px up) ---------- */
+.feedback {
+  background-color: #fff;
+  color: #0b0b0b;
+  padding: 40px 16px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.feedback__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  text-align: left; /* вирівнювання контенту по лівому краю */
+}
+
+/* ---------- HEADINGS ---------- */
+.feedback__title {
+  font-family: 'Inter', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.4px;
+  margin-bottom: 6px;
+  text-align: left;
+}
+
+.feedback__subtitle {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #5b5b5b;
+  margin-bottom: 48px;
+  text-align: left;
+}
+
+/* ---------- SWIPER ---------- */
+.feedback__swiper {
+  width: 100%;
+  overflow: visible; /* ✅ показує стрілки, не обрізає */
+  padding-bottom: 48px;
+  position: relative;
+}
+
+.swiper-wrapper {
+  display: flex;
+  gap: 24px;
+}
+
+.swiper-slide {
+  width: auto;
+  height: auto;
+  flex-shrink: 0;
+}
+
+/* ---------- CARD ---------- */
+.feedback-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 380px; /* ✅ контрольна ширина на великих екранах */
+}
+
+.feedback-card__stars {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.feedback-card__text {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #0b0b0b;
+}
+
+.feedback-card__author {
+  font-weight: 700;
+  font-size: 16px;
+  margin-top: auto;
+}
+
+/* ---------- PAGINATION ---------- */
+.feedback__pagination {
+  position: static;
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-start;
+}
+
+.swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: #d9d9d9;
+  border-radius: 50%;
+  opacity: 1;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.swiper-pagination-bullet:hover {
+  background: #a6a6a6;
+  transform: scale(1.1);
+}
+
+.swiper-pagination-bullet-active {
+  background: #0b0b0b;
+}
+
+/* ---------- NAV BUTTONS ---------- */
+.feedback__nav {
+  display: none; /* приховані лише на мобільних */
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #e7e7e7;
+  background: #f7f7f7;
+  cursor: pointer;
+  transition: background 0.25s, border-color 0.25s, opacity 0.25s;
+  position: absolute;
+  bottom: -64px;
+  right: 64px;
+  z-index: 10; /* ✅ щоб не перекривалися контентом */
+}
+
+.feedback__prev {
+  right: 120px;
+}
+
+.feedback__nav:hover {
+  background: #ececec;
+}
+
+.feedback__nav:focus-visible {
+  outline: 2px solid #0b0b0b;
+  outline-offset: 2px;
+}
+
+.feedback__nav:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ---------- LOADER ---------- */
+.feedback__loader {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.7);
+  z-index: 5;
+}
+
+.spinner {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 3px solid #ccc;
+  border-top-color: #0b0b0b;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- TABLET ≥768px ---------- */
+@media (min-width: 768px) {
+  .feedback {
+    padding: 48px 24px;
+  }
+
+  .feedback__title {
+    font-size: 40px;
+    margin-bottom: 8px;
+  }
+
+  .feedback__subtitle {
+    font-size: 17px;
+    margin-bottom: 64px;
+  }
+
+  .swiper-wrapper {
+    gap: 32px;
+  }
+
+  .feedback-card {
+    width: auto; /* ✅ дозволяємо Swiper розподіляти картки */
+  }
+
+  /* ✅ показуємо стрілки вже на планшеті */
+  .feedback__nav {
+    display: inline-flex;
+  }
+}
+
+/* ---------- DESKTOP ≥1440px ---------- */
+@media (min-width: 1440px) {
+  .feedback {
+    padding: 64px;
+  }
+
+  .feedback__title {
+    font-size: 48px;
+  }
+
+  .feedback__subtitle {
+    font-size: 18px;
+    margin-bottom: 80px;
+  }
+
+  .swiper-wrapper {
+    gap: 40px;
+  }
+
+  .feedback-card {
+    width: auto; /* ✅ 3 картки на екрані */
+  }
+}
