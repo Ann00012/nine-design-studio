@@ -12,8 +12,8 @@ body {
 .container {
   width: 100%;
   max-width: 1312px;
-  padding: 0 64px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 .header {
@@ -95,33 +95,24 @@ body {
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05),
     0px -2px 1px 0px rgba(0, 0, 0, 0.2) inset,
     0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset,
-    0px 2px 1px 0px rgba(255, 255, 255, 0.25) inset,
+    0px 2px 1px 0px rgba(126, 78, 78, 0.25) inset,
     0px 32px 24px 0px rgba(255, 255, 255, 0.05) inset;
   outline: none;
 }
 
 .burger-btn {
-  display: flex;
+  display: block;
   flex-direction: column;
   justify-content: center;
   gap: 4px;
   width: 32px;
-  height: 24px;
+  height: 32px;
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
 }
 
-.burger-btn span {
-  display: block;
-  height: 3px;
-  width: 100%;
-  background-color: #664b4b;
-  border-radius: 2px;
-}
-
-/*Mobile first*/
 .mobile-menu {
   position: fixed;
   height: 100vh;
@@ -222,8 +213,12 @@ body {
     0px 32px 24px 0px rgba(255, 255, 255, 0.05) inset;
   transition: all 0.3s ease;
 }
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 0;
+  }
+}
 
-/*Tablet*/
 @media screen and (min-width: 768px) and (max-width: 899px) {
   .header {
     display: flex;
@@ -231,6 +226,9 @@ body {
     justify-content: space-between;
     height: 70px;
     padding: 0 32px;
+  }
+  .container {
+    padding: 0;
   }
 
   .header-container {
@@ -280,7 +278,7 @@ body {
 
   .mobile-menu.is-open {
     transform: translateX(0);
-    display: block;
+    display: flex;
   }
 
   .mobile-nav-list {
@@ -306,7 +304,6 @@ body {
   }
 }
 
-/*Large Tablet*/
 @media screen and (min-width: 900px) and (max-width: 1439px) {
   .header {
     display: flex;
@@ -315,6 +312,10 @@ body {
     height: 70px;
     padding: 0 98px;
   }
+  .container {
+    padding: 0;
+  }
+
   .header-container {
     display: flex;
     align-items: center;
