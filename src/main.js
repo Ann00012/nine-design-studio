@@ -1,23 +1,29 @@
 import Accordion from 'accordion-js';
 import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';;
+import { Navigation, Pagination } from 'swiper/modules';
 import iziToast from 'izitoast';
 import raty from 'raty-js';
 
-// my code
+
+// Код нище секція модального контенту
 import axios from 'axios';
-import { closeModal } from './js/details-modal';
-closeModal()
+import {
+  closeModal,
+  getUrl,
 
-// Видалити код нище
+  // openModal
+} from './js/details-modal';
+// openModal(); 
+closeModal();
+getUrl();
 
-const fetchUsers = async () => {
-  const response = await axios.get(
-    'https://furniture-store-v2.b.goit.study/api-docs/furnitures'
-  );
-  return response;
-};
 
-fetchUsers().then(users => console.log(users));
 
-// Видалити код вище
+// Код вище секція модального контенту
+
+import './js/faq-section';
+import { loadAndRenderFurniture } from './js/furniture-list.js';
+// our-furniture section
+loadAndRenderFurniture();
+// end of our-furniture section
+

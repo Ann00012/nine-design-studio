@@ -14,12 +14,15 @@
   opacity: 0;
   pointer-events: none;
   transition: opacity 250ms ease-in-out;
-  overscroll-behavior: contain;
+  /* overscroll-behavior: contain; */
 }
+
 
 .modal-overlay.is-open {
   opacity: 1;
   pointer-events: auto;
+  overscroll-behavior: contain;
+  overflow: auto;
 }
 
 .modal-details {
