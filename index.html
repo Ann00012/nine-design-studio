@@ -9,30 +9,70 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
     <title>Меблерія</title>
     <script type="module" crossorigin src="/nine-design-studio/index.js"></script>
-    <link rel="modulepreload" crossorigin href="/nine-design-studio/assets/vendor-BBFahr98.js">
-    <link rel="stylesheet" crossorigin href="/nine-design-studio/assets/vendor-BfPs2Zf6.css">
-    <link rel="stylesheet" crossorigin href="/nine-design-studio/assets/index-BcUI9qI2.css">
+    <link rel="modulepreload" crossorigin href="/nine-design-studio/assets/vendor-G5da-cb8.js">
+    <link rel="stylesheet" crossorigin href="/nine-design-studio/assets/vendor-CufM_Sxo.css">
+    <link rel="stylesheet" crossorigin href="/nine-design-studio/assets/index-BUOWeWK6.css">
   </head>
   <body>
     <header class="header">
-  <div class="container">
-    <nav class="nav">
-      <a class="nav-logo" href="./index.html" aria-label="Site logo">
-        <svg class="nav-logo-icon" width="100" height="30">
-          <use href="{=$icon-path}"></use>
-        </svg>
-      </a>
+  <div class="container header-container">
+    <a href="./index.html" class="logo" aria-label="Go to homepage">
+      <img
+        src="/nine-design-studio/assets/logo-tHDD9xLN.svg"
+        alt="Меблерія логотип"
+        width="163"
+        height="70"
+      />
+    </a>
+
+    <button class="mobile-close-btn" aria-label="Закрити меню">
+      <i class="bx bx-x"></i>
+    </button>
+
+    <nav class="header-nav">
       <ul class="nav-list">
-        <li class="nav-item">
-          <a class="nav-link {=$highlight-act}" href="./page-2.html">Page 2</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {=$highlight-curr}" href="./page-3.html">Page 3</a>
-        </li>
+        <li><a href="#furniture" class="nav-link">Наші меблі</a></li>
+        <li><a href="#about" class="nav-link">Про нас</a></li>
+        <li><a href="#faq" class="nav-link">Часті питання</a></li>
+        <li><a href="#reviews" class="nav-link">Відгуки</a></li>
+        <li><a href="#furniture" class="btn-buy nav-link">До покупок</a></li>
       </ul>
     </nav>
+
+    <button class="burger-btn" aria-expanded="false" aria-label="Відкрити меню">
+      <img
+        src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%20fill='none'%3e%3cpath%20fill='%23080C09'%20d='M4%206h16v2H4V6Zm0%205h16v2H4v-2Zm0%205h16v2H4v-2Z'/%3e%3c/svg%3e"
+        width="32"
+        height="32"
+        alt=""
+        aria-hidden="true"
+      />
+    </button>
   </div>
 </header>
+
+<div class="mobile-menu" role="dialog" aria-hidden="true">
+  <ul class="mobile-nav-list">
+    <li><a href="#furniture" class="mobile-nav-link">Наші меблі</a></li>
+    <li><a href="#about" class="mobile-nav-link">Про нас</a></li>
+    <li><a href="#faq" class="mobile-nav-link">Часті питання</a></li>
+    <li><a href="#reviews" class="mobile-nav-link">Відгуки</a></li>
+  </ul>
+
+  <a href="#furniture" class="btn-buy mobile-buy">До покупок</a>
+</div>
+
+<link
+  href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+  rel="stylesheet"
+/>
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/izitoast/dist/js/iziToast.min.js"></script>
+
 
     <main>
        <section class="hero">
