@@ -21,3 +21,8 @@ const swiper = new Swiper('.swiper', {
     clickable: true,
   },
 });
+import './js/faq-section';
+import { loadAndRenderFurniture } from './js/furniture-list.js';
+
+loadAndRenderFurniture();
+

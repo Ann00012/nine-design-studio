@@ -1,0 +1,258 @@
+.our-furniture {
+  background-color: #fff;
+}
+.our-furniture-container {
+  min-width: 320px;
+  margin: 0 auto;
+  padding: 48px 20px;
+}
+.our-furniture-title {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  margin-bottom: 16px;
+}
+.our-furniture-subtitle {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+.our-furniture-categories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.our-furniture-category-card {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  text-align: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  padding: 32px 16px;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #ddd;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 0;
+  color: inherit;
+}
+.our-furniture-product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+.our-furniture-card-image {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+.our-furniture-card-title {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+.our-furniture-card-color-list {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+.our-furniture-card-color {
+  width: 24px;
+  border-radius: 50%;
+  height: 24px;
+  border: 1px solid #202020;
+}
+.our-furniture-card-price {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+.our-furniture-card-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 8px;
+  border-radius: 100px;
+  padding: 10px 24px;
+  width: 100%;
+  height: 46px;
+  border: transparent;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+  background: rgba(0, 0, 0, 0.05);
+}
+.our-furniture-category-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.35)
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.our-furniture-category-card:nth-child(1) {
+  background-image: url('/img/our-furniture/1-x/all-products.jpg');
+  background-image: image-set(
+    url('/img/our-furniture/1-x/all-products.jpg') 1x,
+    url('/img/our-furniture/2-x/all-products@2x.jpg') 2x
+  );
+}
+
+.our-furniture-category-card:nth-child(2) {
+  background-image: url('/img/our-furniture/1-x/soft-furniture.jpg');
+  background-image: image-set(
+    url('/img/our-furniture/1-x/soft-furniture.jpg') 1x,
+    url('/img/our-furniture/2-x/soft-furniture@2x.jpg') 2x
+  );
+}
+
+.our-furniture-category-card:nth-child(3) {
+  background-image: url('/img/our-furniture/1-x/closets-and-storage.jpg');
+  background-image: image-set(
+    url('/img/our-furniture/1-x/closets-and-storage.jpg') 1x,
+    url('/img/our-furniture/2-x/closets-and-storage@2x.jpg') 2x
+  );
+}
+
+.our-furniture-category-card:nth-child(4) {
+  background-image: url('/img/our-furniture/1-x/beds-and-mattresses.jpg');
+  background-image: image-set(
+    url('/img/our-furniture/1-x/beds-and-mattresses.jpg') 1x,
+    url('/img/our-furniture/2-x/beds-and-mattresses@2x.jpg') 2x
+  );
+}
+
+.our-furniture-category-card:nth-child(5) {
+  background-image: url('/img/our-furniture/1-x/tables.jpg');
+  background-image: image-set(
+    url('/img/our-furniture/1-x/tables.jpg') 1x,
+    url('/img/our-furniture/2-x/tables@2x.jpg') 2x
+  );
+}
+
+.our-furniture-category-card:nth-child(6) {
+  background-image: url('/img/our-furniture/1-x/chairs-and-stools.jpg');
+  background-image: image-set(
+    url('/img/our-furniture/1-x/chairs-and-stools.jpg') 1x,
+    url('/img/our-furniture/2-x/chairs-and-stools@2x.jpg') 2x
+  );
+}
+
+.our-furniture-category-card:nth-child(7) {
+  background-image: url('/img/our-furniture/1-x/kitchens.jpg');
+  background-image: image-set(
+    url('/img/our-furniture/1-x/kitchens.jpg') 1x,
+    url('/img/our-furniture/2-x/kitchens@2x.jpg') 2x
+  );
+}
+
+.our-furniture-category-card:nth-child(8) {
+  background-image: url('/img/our-furniture/1-x/childrens-furniture.jpg');
+  background-image: image-set(
+    url('/img/our-furniture/1-x/childrens-furniture.jpg') 1x,
+    url('/img/our-furniture/2-x/childrens-furniture@2x.jpg') 2x
+  );
+}
+
+.our-furniture-category-card:nth-child(9) {
+  background-image: url('/img/our-furniture/1-x/office-furniture.jpg');
+  background-image: image-set(
+    url('/img/our-furniture/1-x/office-furniture.jpg') 1x,
+    url('/img/our-furniture/2-x/office-furniture@2x.jpg') 2x
+  );
+}
+
+.our-furniture-category-card:nth-child(10) {
+  background-image: url('/img/our-furniture/1-x/entryway-furniture.jpg');
+  background-image: image-set(
+    url('/img/our-furniture/1-x/entryway-furniture.jpg') 1x,
+    url('/img/our-furniture/2-x/entryway-furniture@2x.jpg') 2x
+  );
+}
+
+.our-furniture-category-card:nth-child(11) {
+  background-image: url('/img/our-furniture/1-x/bathroom-furniture.jpg');
+  background-image: image-set(
+    url('/img/our-furniture/1-x/bathroom-furniture.jpg') 1x,
+    url('/img/our-furniture/2-x/bathroom-furniture@2x.jpg') 2x
+  );
+}
+
+.our-furniture-category-card:nth-child(12) {
+  background-image: url('/img/our-furniture/1-x/outdoor-furniture.jpg');
+  background-image: image-set(
+    url('/img/our-furniture/1-x/outdoor-furniture.jpg') 1x,
+    url('/img/our-furniture/2-x/outdoor-furniture@2x.jpg') 2x
+  );
+}
+
+.our-furniture-category-card:nth-child(13) {
+  background-image: url('/img/our-furniture/1-x/decor-and-accessories.jpg');
+  background-image: image-set(
+    url('/img/our-furniture/1-x/decor-and-accessories.jpg') 1x,
+    url('/img/our-furniture/2-x/decor-and-accessories@2x.jpg') 2x
+  );
+}
+.our-furniture-products-list {
+  margin-bottom: 32px;
+}
+.our-furniture-show-more-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 8px;
+  border-radius: 100px;
+  border: transparent;
+  padding: 10px 24px;
+  width: 100%;
+  height: 46px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(0, 0, 0, 0.15),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+  background-color: #6b0609;
+  color: #fff;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.our-furniture-category-card {
+  z-index: 0;
+  color: inherit;
+}
+
+.our-furniture-category-card::before {
+  z-index: 1;
+}
+
+.our-furniture-category-card-label {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  -webkit-text-fill-color: #ffffff;
+  mix-blend-mode: normal;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+}
