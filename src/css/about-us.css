@@ -1,6 +1,6 @@
 .about {
   background-color: #f7eded; 
-  padding: 40px 0;
+  padding: 64px 0;
 }
 
 .about__container {
@@ -41,11 +41,11 @@
 
 @media (min-width: 768px) {
   .about {
-    padding: 32px;
+    padding: 64px;
   }
 
   .about__container {
-    max-width: 720px;
+    max-width: 704px;
     padding: 0;
   }
 
@@ -73,7 +73,7 @@ object-fit:cover;
 
 @media (min-width: 1440px) {
  .about__container {
-    max-width: 1440px;
+    max-width: 1312px;
     display: flex;
     align-items: center;
     justify-content: space-between;
