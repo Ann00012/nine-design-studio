@@ -40,6 +40,15 @@ export function createFurnitureCard(furniture) {
     `;
   return card;
 }
+export function showLoader() {
+  const loader = document.querySelector('.loader-wrapper');
+  if (loader) loader.style.display = 'flex';
+}
+
+export function hideLoader() {
+  const loader = document.querySelector('.loader-wrapper');
+  if (loader) loader.style.display = 'none';
+}
 
 export function renderFurnitureList(furnitureList, container) {
   container.innerHTML = '';
@@ -54,10 +63,12 @@ export function renderFurnitureList(furnitureList, container) {
   });
 }
 export function loadAndRenderFurniture() {
+  showLoader();
   try {
     fetchFurnitureList(page, limit)
       .then(furnitureList => {
         renderFurnitureList(furnitureList, renderContainer);
+        hideLoader();
       })
       .catch(error => {
         console.error('Error loading furniture list:', error);

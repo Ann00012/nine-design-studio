@@ -1,9 +1,12 @@
+import s from 'accordion-js';
 import {
   renderFurnitureList,
   renderContainer,
   page,
   limit,
   resetPage,
+  showLoader,
+  hideLoader,
 } from './furniture-list';
 const API_URL = 'https://furniture-store-v2.b.goit.study/api';
 export const categoryContainer = document.querySelector(
@@ -43,9 +46,11 @@ function renderCategoryOptions(categories) {
   });
 }
 export function loadAndRenderFurnitureCategories() {
+  showLoader();
   fetchFurnitureCategories()
     .then(categories => {
       renderCategoryOptions(sortCategories(categories));
+      hideLoader();
     })
     .catch(error => {
       console.error('Error loading furniture categories:', error);
@@ -53,6 +58,7 @@ export function loadAndRenderFurnitureCategories() {
         title: 'Error',
         message: 'Failed to load furniture categories. Please try again later.',
       });
+      hideLoader();
     });
 }
 async function fetchFurnitureListByFilter(page, limit, category) {
@@ -68,15 +74,18 @@ categoryContainer.addEventListener('click', event => {
   const selectedCategory = button.getAttribute('data-category') || null;
   try {
     resetPage();
+    showLoader();
     fetchFurnitureListByFilter(page, limit, selectedCategory)
       .then(response => {
         if (!response.ok) {
           throw new Error('Failed to fetch furniture list by filter');
+          hideLoader();
         }
         return response.json();
       })
       .then(furnitureList => {
         renderFurnitureList(furnitureList, renderContainer);
+        hideLoader();
       })
       .catch(error => {
         console.error('Error loading filtered furniture list:', error);
@@ -84,6 +93,7 @@ categoryContainer.addEventListener('click', event => {
           title: 'Error',
           message: 'Failed to load furniture list. Please try again later.',
         });
+        hideLoader();
       });
   } catch (error) {
     console.error('Unexpected error:', error);
