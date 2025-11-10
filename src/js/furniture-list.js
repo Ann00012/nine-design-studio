@@ -55,7 +55,7 @@ export function renderFurnitureList(furnitureList, container) {
 }
 export function loadAndRenderFurniture() {
   try {
-    fetchFurnitureList(page, limit, null)
+    fetchFurnitureList(page, limit)
       .then(furnitureList => {
         renderFurnitureList(furnitureList, renderContainer);
       })
@@ -81,7 +81,9 @@ function hideLoadMore() {
     loadMoreButton.classList.remove('is-open');
   }
 }
-
+export function resetPage() {
+  page = 1;
+}
 function loadMoreFurniture() {
   page += 1;
   fetchFurnitureList(page, limit)

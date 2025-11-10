@@ -3,6 +3,7 @@ import {
   renderContainer,
   page,
   limit,
+  resetPage,
 } from './furniture-list';
 const API_URL = 'https://furniture-store-v2.b.goit.study/api';
 export const categoryContainer = document.querySelector(
@@ -55,7 +56,6 @@ export function loadAndRenderFurnitureCategories() {
     });
 }
 async function fetchFurnitureListByFilter(page, limit, category) {
-  page =  1;
   const response = await fetch(
     `${API_URL}/furnitures?page=${page}&limit=${limit}` +
       (category ? `&category=${category}` : '')
@@ -67,6 +67,7 @@ categoryContainer.addEventListener('click', event => {
   if (!button) return;
   const selectedCategory = button.getAttribute('data-category') || null;
   try {
+    resetPage();
     fetchFurnitureListByFilter(page, limit, selectedCategory)
       .then(response => {
         if (!response.ok) {
