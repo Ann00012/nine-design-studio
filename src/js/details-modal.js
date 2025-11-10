@@ -8,6 +8,12 @@ const modalDetails = document.querySelector('.modal-details');
 
 const modalContantButton = document.querySelector('.modal-contant-button');
 
+const modalCategory = document.querySelector('.modal-category');
+
+const descriptionModal = document.querySelector('.description-modal');
+
+const dimensionsModal = document.querySelector('.dimensions-modal');
+
 let idOurFurnitureCardButton = null;
 
 function addClassName(param) {
@@ -24,20 +30,22 @@ document.addEventListener('click', event => {
   addClassName(modalOverlay);
 
   idOurFurnitureCardButton = btn.dataset.id;
-  console.log(idOurFurnitureCardButton);
 
   getUrl()
     .then(data => {
       console.log(data);
 
-      imgFirst.src = data.furnitures[0].images[0];
-      imgSecond.src = data.furnitures[0].images[1];
-      imgthird.src = data.furnitures[0].images[2];
+      imgFirst.src = data.images[0];
+      imgSecond.src = data.images[1];
+      imgthird.src = data.images[2];
 
-      modalContantTitle.textContent = data.furnitures[0].name;
-      price.textContent = data.furnitures[0].price + ' грн';
+      modalContantTitle.textContent = data.name;
+      
+      modalCategory.textContent = data.category.name;
 
-      const inputTypeRadio = data.furnitures[0].color
+      price.textContent = data.price + ' грн';
+
+      const inputTypeRadio = data.color
         .map(
           (color, i) =>
             `<input type="radio" name="option" style="background-color:${color}" ${
@@ -47,6 +55,10 @@ document.addEventListener('click', event => {
         .join('');
 
       wrapperCheckbox.insertAdjacentHTML('beforeend', inputTypeRadio);
+
+      descriptionModal.textContent = data.description;
+
+      dimensionsModal.textContent = data.sizes;
     })
     .catch(error => {
       console.log(error);
@@ -64,7 +76,6 @@ function remoweClassName(param) {
 export function closeModal() {
   closeButton.addEventListener('click', () => {
     remoweClassName(modalOverlay);
-    console.log('ok');
   });
 
   modalOverlay.addEventListener('click', event => {
@@ -92,16 +103,13 @@ const modalContantTitle = document.querySelector('.modal-contant-title');
 const price = document.querySelector('.price');
 const wrapperCheckbox = document.querySelector('.wrapper-checkbox');
 
-// const BASE_URL = 'https://furniture-store-v2.b.goit.study/api/furnitures';
-const LIMIT = 1;
 const BASE_URL = 'https://furniture-store-v2.b.goit.study/api/furnitures';
-
 
 // Запит на сервер
 
 export async function getUrl() {
-  // const url = `${BASE_URL}?limit=${LIMIT}`;
-  const url = `${BASE_URL}?{${idOurFurnitureCardButton}}`;
+  const url = `${BASE_URL}/${idOurFurnitureCardButton}`;
+
   try {
     const response = await fetch(url, {
       headers: { Accept: 'application/json' },
@@ -109,38 +117,12 @@ export async function getUrl() {
 
     if (!response.ok) throw new Error(HTTP`${response.status}`);
     const data = await response.json();
+
     return data;
   } catch (error) {
     console.log(error);
   }
 }
-
-// getUrl()
-//   .then(data => {
-//     console.log(data);
-
-//     imgFirst.src = data.furnitures[0].images[0];
-//     imgSecond.src = data.furnitures[0].images[1];
-//     imgthird.src = data.furnitures[0].images[2];
-     
-//     modalContantTitle.textContent = data.furnitures[0].name;
-//     price.textContent = data.furnitures[0].price + ' грн';
-      
-//       const inputTypeRadio = data.furnitures[0].color
-//         .map(
-//           (color, i) =>
-//             `<input type="radio" name="option" style="background-color:${color}" ${
-//               i === 0 ? 'checked' : ''
-//             }>`
-//         )
-//         .join('');
-
-//       wrapperCheckbox.insertAdjacentHTML('beforeend', inputTypeRadio);
-     
-//   })
-//   .catch(error => {
-//     console.log(error);
-//   });
 
   
   
