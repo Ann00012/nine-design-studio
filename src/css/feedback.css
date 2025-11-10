@@ -8,7 +8,7 @@
 .feedback {
   background: #fff;
   color: #0b0b0b;
-  padding: 64px 20px;
+  padding: 64px 0px;
   width: 100%;
   max-width: 375px;
   min-height: 695px;
@@ -93,7 +93,7 @@
 .feedback-card__block {
   background: #fff;
   border-radius: 8px;
-  padding: 0 48px 0 0;
+  margin-right: 48px;
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* 🔥 текст зверху, автор знизу */
@@ -204,7 +204,7 @@
 @media (min-width: 768px) {
   .feedback {
     max-width: 768px;
-    padding: 48px 32px;
+    padding: 48px 0px;
   }
 
   .feedback__container {
@@ -228,7 +228,7 @@
 @media (min-width: 1440px) {
   .feedback {
     max-width: 1440px;
-    padding: 64px;
+    padding: 64px 0px; 
   }
 
   .feedback__container {
@@ -245,7 +245,7 @@
 
   .feedback-card__block {
     min-height: 260px; /* ще трохи більше простору */
-    padding: 0 48px 0 0;
+  
   }
 
   .feedback__controls {
