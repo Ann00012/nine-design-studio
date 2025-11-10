@@ -10,12 +10,7 @@ import raty from 'raty-js';
 import axios from 'axios';
 import {
   closeModal,
-  getUrl,
-
-  // openModal
 } from './js/details-modal';
-// openModal(); 
-closeModal();
 
 
 
