@@ -23,6 +23,11 @@ const swiper = new Swiper('.swiper', {
 });
 import './js/faq-section';
 import { loadAndRenderFurniture } from './js/furniture-list.js';
+import { loadAndRenderFurnitureCategories } from './js/furniture-categories.js';
 
+
+// our-furniture section
+loadAndRenderFurnitureCategories();
 loadAndRenderFurniture();
 
+// end of our-furniture section

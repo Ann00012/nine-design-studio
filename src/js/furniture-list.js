@@ -1,3 +1,5 @@
+import s from 'accordion-js';
+
 export const FURNITURE_API_URL =
   'https://furniture-store-v2.b.goit.study/api/furnitures';
 export const renderContainer = document.querySelector(
@@ -5,6 +7,7 @@ export const renderContainer = document.querySelector(
 );
 export let page = 1;
 export const limit = 8;
+const loadMoreButton = document.querySelector('.our-furniture-show-more-btn');
 export async function fetchFurnitureList(page, limit) {
   const response = await fetch(
     `${FURNITURE_API_URL}?page=${page}&limit=${limit}`
@@ -24,38 +27,82 @@ export function createFurnitureCard(furniture) {
         <h3 class="our-furniture-card-title">${furniture.name}</h3>
         <ul class="our-furniture-card-color-list">
             ${furniture.color
-      .map(
-        (color) => `<li class="our-furniture-card-color" style="background-color: ${color};"></li>`
-      )
-      .join('')}
+              .map(
+                color =>
+                  `<li class="our-furniture-card-color" style="background-color: ${color};"></li>`
+              )
+              .join('')}
           </ul>    
         <p class="our-furniture-card-price">${furniture.price} грн</p>
-        <button class="our-furniture-card-button">Детальніше</button>
+        <button class="our-furniture-card-button"data-id="${
+          furniture._id
+        }">Детальніше</button>
     `;
   return card;
 }
 
 export function renderFurnitureList(furnitureList, container) {
-    container.innerHTML = '';
-    furnitureList.furnitures.forEach(furniture => {
-        const card = createFurnitureCard(furniture);
-        container.appendChild(card);
-    });
+  container.innerHTML = '';
+  furnitureList.furnitures.forEach(furniture => {
+    const card = createFurnitureCard(furniture);
+    container.appendChild(card);
+    if (furnitureList.totalItems > limit) {
+      showLoadMore();
+    } else {
+      hideLoadMore();
+    }
+  });
 }
 export function loadAndRenderFurniture() {
-    try {
-        fetchFurnitureList(page, limit)
-            .then(furnitureList => { 
-                renderFurnitureList(furnitureList, renderContainer);
-            })
-            .catch(error => {
-                console.error('Error loading furniture list:', error);
-                iziToast.error({
-                    title: 'Error',
-                    message: 'Failed to load furniture list. Please try again later.',
-                });
-            });
-    } catch (error) {
-        console.error('Unexpected error:', error);
-    }
+  try {
+    fetchFurnitureList(page, limit)
+      .then(furnitureList => {
+        renderFurnitureList(furnitureList, renderContainer);
+      })
+      .catch(error => {
+        console.error('Error loading furniture list:', error);
+        iziToast.error({
+          title: 'Error',
+          message: 'Failed to load furniture list. Please try again later.',
+        });
+      });
+  } catch (error) {
+    console.error('Unexpected error:', error);
+  }
 }
+
+function showLoadMore() {
+  if (!loadMoreButton.classList.contains('is-open')) {
+    loadMoreButton.classList.add('is-open');
+  }
+}
+function hideLoadMore() {
+  if (loadMoreButton.classList.contains('is-open')) {
+    loadMoreButton.classList.remove('is-open');
+  }
+}
+export function resetPage() {
+  page = 1;
+}
+function loadMoreFurniture() {
+  page += 1;
+  fetchFurnitureList(page, limit)
+    .then(furnitureList => {
+      furnitureList.furnitures.forEach(furniture => {
+        const card = createFurnitureCard(furniture);
+        renderContainer.appendChild(card);
+      });
+      if (furnitureList.totalItems <= page * limit) {
+        hideLoadMore();
+      }
+    })
+    .catch(error => {
+      console.error('Error loading more furniture:', error);
+      iziToast.error({
+        title: 'Error',
+        message: 'Failed to load more furniture. Please try again later.',
+      });
+    });
+}
+
+loadMoreButton.addEventListener('click', loadMoreFurniture);
