@@ -1,6 +1,11 @@
 .faq-section {
-  max-width: 100%;
-  padding: 48px 20px;
+  padding-bottom: 48px;
+  padding-top: 48px;
+}
+
+.faq-container {
+  max-width: 375px;
+  margin: 0 auto;
 }
 
 .faq-title {
@@ -68,11 +73,16 @@
   color: #080c09;
 }
 
+@media screen and (max-width: 767.98px) {
+  .faq-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
 @media screen and (min-width: 768px) and (max-width: 1439.98px) {
-  .faq-section {
+  .faq-container {
     max-width: 705px;
-    margin: 0 auto;
-    padding: 48px 0;
   }
 
   .accordion-container .ac .ac-trigger {
@@ -82,27 +92,19 @@
 
 @media screen and (min-width: 1440px) {
   .faq-section {
+    padding-bottom: 80px;
+    padding-top: 80px;
+  }
+
+  .faq-container {
     max-width: 865px;
-    margin: 0 auto;
-    padding: 80px 0;
   }
 
   .faq-title {
     font-size: 48px;
   }
 
-  .accordion-container {
-    max-width: 865px;
-    margin: 0 auto;
-  }
-
   .accordion-container .ac .ac-trigger:hover {
     cursor: pointer;
-  }
-
-  .accordion-container .ac .ac-trigger:focus {
-    color: #080c09;
-    background: none;
-    box-shadow: none;
   }
 }

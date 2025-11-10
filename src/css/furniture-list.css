@@ -1,11 +1,13 @@
 .our-furniture {
   background-color: #fff;
 }
+
 .our-furniture-container {
   min-width: 320px;
   margin: 0 auto;
   padding: 48px 20px;
 }
+
 .our-furniture-title {
   font-weight: 700;
   font-size: 36px;
@@ -13,6 +15,7 @@
   letter-spacing: 0.01em;
   margin-bottom: 16px;
 }
+
 .our-furniture-subtitle {
   font-weight: 400;
   font-size: 18px;
@@ -26,34 +29,40 @@
   gap: 24px;
   margin-bottom: 32px;
 }
+
 .our-furniture-card-image {
   width: 100%;
   border-radius: 8px;
   margin-bottom: 16px;
 }
+
 .our-furniture-card-title {
   font-weight: 600;
   font-size: 18px;
   line-height: 1.6;
   margin-bottom: 8px;
 }
+
 .our-furniture-card-color-list {
   display: flex;
   gap: 16px;
   margin-bottom: 8px;
 }
+
 .our-furniture-card-color {
   width: 24px;
   border-radius: 50%;
   height: 24px;
   border: 1px solid #202020;
 }
+
 .our-furniture-card-price {
   font-weight: 600;
   font-size: 20px;
   line-height: 1.6;
   margin-bottom: 16px;
 }
+
 .our-furniture-card-button {
   display: flex;
   align-items: center;
@@ -69,15 +78,14 @@
     inset 0 -2px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px rgba(0, 0, 0, 0.05);
   background: rgba(0, 0, 0, 0.05);
 }
+
 .our-furniture-category-card::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.15),
-    rgba(0, 0, 0, 0.35)
-  );
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.15),
+      rgba(0, 0, 0, 0.35));
   pointer-events: none;
   z-index: 1;
 }
@@ -85,8 +93,9 @@
 .our-furniture-products-list {
   margin-bottom: 32px;
 }
+
 .our-furniture-show-more-btn {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   flex-direction: row;
@@ -139,5 +148,66 @@
   .our-furniture-show-more-btn {
     width: 421px;
     margin: 0 auto;
+.our-furniture-show-more-btn.is-open {
+  display: flex;
+}
+
+.loader-wrapper {
+  padding: 40px 0;
+  justify-content: center;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  position: relative;
+  border: 2px solid #000000;
+  box-sizing: border-box;
+  animation: rotation 2s linear infinite;
+}
+
+.loader::after,
+.loader::before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border: 2px solid #ff3d00;
+  width: 38px;
+  height: 38px;
+  animation: rotationBack 1.5s linear infinite;
+  transform-origin: center center;
+}
+
+.loader::before {
+  width: 28px;
+  height: 28px;
+  border-color: #000000;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
   }
 }

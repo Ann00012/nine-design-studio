@@ -1,0 +1,46 @@
+<section class="feedback" id="feedback">
+  <div class="feedback__container">
+    <!-- Заголовок + підзаголовок -->
+    <div class="feedback__header">
+      <h2 class="feedback__title">Відгуки клієнтів</h2>
+      <p class="feedback__subtitle">
+        Дізнайтеся, що кажуть наші задоволені клієнти про наші меблі.
+      </p>
+    </div>
+
+    <!-- Лоадер -->
+    <div class="feedback__loader" aria-hidden="true" hidden>
+      <span class="spinner" aria-label="Завантаження..."></span>
+    </div>
+
+    <!-- Слайдер -->
+    <div class="swiper feedback__swiper">
+      <div class="swiper-wrapper" id="feedbackList"></div>
+    </div>
+
+    <!-- Нижня панель навігації -->
+    <div class="feedback__controls">
+      <!-- Пагінація -->
+      <div class="swiper-pagination feedback__pagination" aria-label="Пагінація відгуків"></div>
+
+      <!-- Кнопки навігації -->
+      <div class="feedback__buttons">
+        <button type="button" class="feedback__nav feedback__prev" aria-label="Попередній відгук">
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M15 18L9 12l6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+
+        <button type="button" class="feedback__nav feedback__next" aria-label="Наступний відгук">
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="module" src="/js/feedback.js"></script>
