@@ -50,153 +50,54 @@ export function closeModal() {
   });
 }
 
-// export function openOrder() {
-//     modalContantButton.addEventListener('click', () => {
-//       addClassName(modalOrderOverlay);
-//     });
-// }
-
-// Початок запиту на сервер
-
-// const fetchUsers = async () => {
-//   const response = await axios.get(
-//     'https://furniture-store-v2.b.goit.study/api-docs/'
-//   );
-//   return response.data;
-// };
-
-// fetchUsers()
-//     .then(users => console.log(users));
+const imgFirst = document.querySelector('.img-first');
+const imgSecond = document.querySelector('.img-second');
+const imgthird = document.querySelector('.img-third');
+const modalContantTitle = document.querySelector('.modal-contant-title');
+const price = document.querySelector('.price');
+const wrapperCheckbox = document.querySelector('.wrapper-checkbox');
 
 const BASE_URL = 'https://furniture-store-v2.b.goit.study/api/furnitures';
+const LIMIT = 1;
 
-export async function getUrl(BASE_URL) {
+export async function getUrl() {
+  const url = `${BASE_URL}?limit=${LIMIT}`;
   try {
-    const response = await axios.get(`${BASE_URL}`);
-    console.log(response.json());
+    const response = await fetch(url, {
+      headers: { Accept: 'application/json' },
+    });
+
+    if (!response.ok) throw new Error(HTTP`${response.status}`);
+    const data = await response.json();
+    return data;
   } catch (error) {
-    console.log('Помилка при отриманні користувачів:', error);
+    console.log(error);
   }
 }
 
-// export const FURNITURE_API_URL =
-//   'https://furniture-store-v2.b.goit.study/api/furnitures';
-// // export const renderContainer = document.querySelector(
-// //   '.our-furniture-product-list'
-// // );
-// export let page = 1;
-// export const limit = 8;
-// export async function fetchFurnitureList(page, limit) {
-//   const response = await fetch(
-//     `${FURNITURE_API_URL}?page=${page}&limit=${limit}`
-//   );
-//   if (!response.ok) {
-//     throw new Error('Failed to fetch furniture list');
-//   }
-//   return await response.json();
-// }
+getUrl()
+  .then(data => {
+    console.log(data.furnitures[0].color);
 
-// export function createFurnitureCard(furniture) {
-//   const card = document.createElement('li');
-//   card.className = 'our-furniture-product-list-card';
-//   card.innerHTML = `
-//         <img src="${furniture.images[0]}" alt="${
-//     furniture.name
-//   }" class="our-furniture-card-image"/>
-//         <h3 class="our-furniture-card-title">${furniture.name}</h3>
-//         <ul class="our-furniture-card-color-list">
-//             ${furniture.color
-//               .map(
-//                 color =>
-//                   `<li class="our-furniture-card-color" style="background-color: ${color};"></li>`
-//               )
-//               .join('')}
-//           </ul>
-//         <p class="our-furniture-card-price">${furniture.price} грн</p>
-//         <button class="our-furniture-card-button">Детальніше</button>
-//     `;
-//   return card;
-// }
+    imgFirst.src = data.furnitures[0].images[0];
+    imgSecond.src = data.furnitures[0].images[1];
+    imgthird.src = data.furnitures[0].images[2];
+     
+    modalContantTitle.textContent = data.furnitures[0].name;
+    price.textContent = data.furnitures[0].price + ' грн';
+      
+      const inputTypeRadio = data.furnitures[0].color
+        .map(
+          (color, i) =>
+            `<input type="radio" name="option" style="background-color:${color}" ${
+              i === 0 ? 'checked' : ''
+            }>`
+        )
+        .join('');
 
-// export function renderFurnitureList(furnitureList, container) {
-//   container.innerHTML = '';
-//   furnitureList.furnitures.forEach(furniture => {
-//     const card = createFurnitureCard(furniture);
-//     container.appendChild(card);
-//   });
-// }
-// export function loadAndRenderFurniture() {
-//   try {
-//     fetchFurnitureList(page, limit)
-//       .then(furnitureList => {
-//         renderFurnitureList(furnitureList, renderContainer);
-//       })
-//       .catch(error => {
-//         console.error('Error loading furniture list:', error);
-//         iziToast.error({
-//           title: 'Error',
-//           message: 'Failed to load furniture list. Please try again later.',
-//         });
-//       });
-//   } catch (error) {
-//     console.error('Unexpected error:', error);
-//   }
-// }
-
-
-
-
-
-
-
-
-// Відгуки
-
-
-// const API_BASE = 'https://furniture-store-v2.b.goit.study/api';
-// const LIMIT = 10;
-// async function fetchFeedbacks() {
-//   const url = ${API_BASE}/feedbacks?limit=${LIMIT};
-//   try {
-//     showLoader();
-//     const response = await fetch(url, {
-//       headers: { Accept: 'application/json' },
-//     });
-
-//     if (!response.ok) throw new Error(HTTP ${response.status});
-//     const data = await response.json();
-//     return data.feedbacks.slice(0, LIMIT);
-//   } catch (error) {
-//     iziToast.error({
-//       title: 'Помилка',
-//       message: 'Не вдалося завантажити відгуки. Показано тестові дані.',
-//       position: 'topRight',
-//       timeout: 3000,
-//     });
-
-//     // fallback-дані, якщо бекенд недоступний
-//     return [
-//       {
-//         name: 'Олена Коваль',
-//         descr:
-//           'Дуже задоволена покупкою! Диван не тільки стильний, а й неймовірно зручний.',
-//         rate: 4.5,
-//       },
-//       {
-//         name: 'Андрій Шевченко',
-//         descr:
-//           'Замовляв шафу й ліжко — все приїхало раніше терміну. Якість відмінна!',
-//         rate: 4.5,
-//       },
-//       {
-//         name: 'Іванна Петренко',
-//         descr:
-//           'Меблі чудові, доставка швидка. Все прийшло вчасно і без пошкоджень!',
-//         rate: 4,
-//       },
-//     ];
-//   } finally {
-  
-//     hideLoader();
-//   }
-// }
+      wrapperCheckbox.insertAdjacentHTML('beforeend', inputTypeRadio);
+     
+  })
+  .catch(error => {
+    console.log(error);
+  });

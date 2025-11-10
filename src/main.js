@@ -15,7 +15,7 @@ import {
 } from './js/details-modal';
 // openModal(); 
 closeModal();
-getUrl();
+
 
 
 
