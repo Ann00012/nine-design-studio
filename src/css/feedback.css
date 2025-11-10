@@ -3,11 +3,16 @@
 /* ================================
    ВІДГУКИ КЛІЄНТІВ (MOBILE FIRST)
    ================================ */
+
+/* ---------- ГОЛОВНИЙ БЛОК ---------- */
 .feedback {
   background: #fff;
   color: #0b0b0b;
-  width: 100%;
   padding: 64px 20px;
+  width: 100%;
+  max-width: 375px;
+  min-height: 695px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,13 +24,14 @@
 .feedback__container {
   position: relative;
   width: 100%;
-  max-width: 100%;
+  max-width: 335px; /* 375 - 2*20 */
   display: flex;
   flex-direction: column;
   gap: 80px;
   box-sizing: border-box;
 }
 
+/* ---------- HEADER ---------- */
 .feedback__header {
   display: flex;
   flex-direction: column;
@@ -50,7 +56,7 @@
   margin: 0;
 }
 
-/* ---------- SLIDER ---------- */
+/* ---------- SWIPER ---------- */
 .feedback__swiper {
   width: 100%;
   overflow: hidden;
@@ -63,34 +69,44 @@
 }
 
 .swiper-slide {
+  display: flex;
+  align-items: stretch; /* 👈 усі картки рівні по висоті */
   flex-shrink: 0;
-  transform: translate3d(0, 0, 0);
-  will-change: transform;
 }
 
 /* ---------- CARD ---------- */
 .feedback-card {
-  width: 100%;
-  max-width: 421px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  flex-grow: 1;
+  width: 100%;
+  max-width: 421px;
   box-sizing: border-box;
   margin: 0;
 }
 
 .feedback-card__content {
   width: 100%;
+  flex-grow: 1;
 }
 
 .feedback-card__block {
   background: #fff;
   border-radius: 8px;
-  padding: 0px 48px 0px 0px;
+  padding: 0 48px 0 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  justify-content: space-between; /* 🔥 текст зверху, автор знизу */
+  min-height: 220px; /* базова висота */
+  flex-grow: 1;
   box-sizing: border-box;
+}
+
+/* Внутрішня структура для контролю відступів */
+.feedback-card__top {
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* ⭐ ↔️ текст */
 }
 
 .feedback-card__stars {
@@ -99,7 +115,8 @@
 }
 
 .feedback-card__text {
-  font-size: 16px;
+  font-size: 20px;
+  font-weight: 500;
   line-height: 1.6;
   color: #0b0b0b;
   margin: 0;
@@ -110,6 +127,7 @@
   font-size: 16px;
   color: #0b0b0b;
   margin: 0;
+  margin-top: 24px; /* текст ↔️ автор */
 }
 
 /* ---------- CONTROLS ---------- */
@@ -157,7 +175,6 @@
   align-items: center;
   justify-content: flex-end;
   gap: 16px;
-  flex-shrink: 0;
 }
 
 .feedback__nav {
@@ -183,52 +200,27 @@
   transform: none;
 }
 
-/* ---------- LOADER ---------- */
-.feedback__loader {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  background: rgba(255, 255, 255, 0.7);
-  z-index: 5;
-}
-.spinner {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 3px solid #ccc;
-  border-top-color: #0b0b0b;
-  animation: spin 0.9s linear infinite;
-}
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 /* ---------- TABLET ≥768px ---------- */
 @media (min-width: 768px) {
   .feedback {
     max-width: 768px;
     padding: 48px 32px;
-    gap: 80px;
-    margin: 0 auto;
   }
+
   .feedback__container {
     max-width: 704px;
   }
+
   .feedback__title {
     font-size: 40px;
   }
-  .feedback__subtitle {
-    font-size: 17px;
+
+  .feedback-card__block {
+    min-height: 240px; /* трохи більші картки */
   }
-  .feedback-card {
-    max-width: 340px;
-  }
+
   .feedback__controls {
     max-width: 704px;
-    gap: 24px;
   }
 }
 
@@ -237,23 +229,25 @@
   .feedback {
     max-width: 1440px;
     padding: 64px;
-    gap: 80px;
   }
+
   .feedback__container {
     max-width: 1312px;
   }
+
   .feedback__title {
     font-size: 48px;
   }
+
   .feedback__subtitle {
     font-size: 18px;
   }
-  .feedback-card {
-    width: 421px;
-  }
+
   .feedback-card__block {
-    padding: 0px 48px 0px 0px;
+    min-height: 260px; /* ще трохи більше простору */
+    padding: 0 48px 0 0;
   }
+
   .feedback__controls {
     max-width: 1312px;
     gap: 40px;
