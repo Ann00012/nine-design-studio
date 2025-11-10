@@ -83,7 +83,7 @@ async function fetchFeedbacks() {
   }
 }
 
-/* ------------------ Відображення зірочок ------------------ */
+/* ------------------ Відображення зірок ------------------ */
 function mountStars() {
   document.querySelectorAll('.feedback-card__stars').forEach(el => {
     const score = Number(el.dataset.score || 4);
