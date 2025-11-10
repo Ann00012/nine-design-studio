@@ -10,10 +10,10 @@
   justify-content: center;
   align-items: flex-start;
   padding: 103px 20px;
-  overflow-y: auto;
   opacity: 0;
   pointer-events: none;
   transition: opacity 250ms ease-in-out;
+  
 }
 
 
@@ -21,7 +21,8 @@
   opacity: 1;
   pointer-events: auto;
   overscroll-behavior: contain;
-  overflow: auto;
+  overflow-y: auto;
+
 }
 
 .modal-details {
@@ -30,6 +31,10 @@
   border-radius: 8px;
   padding: 64px 20px 44px 20px;
   position: relative;
+}
+
+.modal-details .modal-contant {
+  display: none; /* спочатку приховано */
 }
 
 .close-button {
@@ -289,4 +294,30 @@
 .modal-contant-text.price {
   font-size: 32px;
 }
+}
+
+.modal-overlay .loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid rgba(107, 6, 9, 1);
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    position: absolute;     
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;             
+    display: none;           
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
 }

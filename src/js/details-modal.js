@@ -1,4 +1,6 @@
 import axios from 'axios';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
 const modalOverlay = document.querySelector('.modal-overlay');
 
@@ -14,12 +16,15 @@ const descriptionModal = document.querySelector('.description-modal');
 
 const dimensionsModal = document.querySelector('.dimensions-modal');
 
+const loader = document.querySelector('.modal-overlay .loader');
+
+const modalContant = document.querySelector('.modal-contant');
+
 let idOurFurnitureCardButton = null;
 
 function addClassName(param) {
   param.classList.add('is-open');
 }
-
 
 // Відкриваю модальне вікно та зберігаю id для запиту на сервер
 
@@ -31,10 +36,11 @@ document.addEventListener('click', event => {
 
   idOurFurnitureCardButton = btn.dataset.id;
 
+  showLoader();
+
   getUrl()
     .then(data => {
-      console.log(data);
-
+       
       imgFirst.src = data.images[0];
       imgSecond.src = data.images[1];
       imgthird.src = data.images[2];
@@ -44,6 +50,8 @@ document.addEventListener('click', event => {
       modalCategory.textContent = data.category.name;
 
       price.textContent = data.price + ' грн';
+
+      wrapperCheckbox.innerHTML = '';
 
       const inputTypeRadio = data.color
         .map(
@@ -59,9 +67,14 @@ document.addEventListener('click', event => {
       descriptionModal.textContent = data.description;
 
       dimensionsModal.textContent = data.sizes;
+      hideLoader();
     })
     .catch(error => {
-      console.log(error);
+      iziToast.error({
+        title: 'Помилка!',
+        message: 'Не вдалося завантажити дані з сервера.',
+        position: 'topRight',
+      });
     });
 });
 
@@ -115,14 +128,41 @@ export async function getUrl() {
       headers: { Accept: 'application/json' },
     });
 
-    if (!response.ok) throw new Error(HTTP`${response.status}`);
+    if (!response.ok) throw new Error(`HTTP${response.status}`);
     const data = await response.json();
 
     return data;
   } catch (error) {
-    console.log(error);
+    hideLoader();
+    remoweClassName(modalOverlay);
+     return error;
   }
 }
 
+// коректне відображення контенту при зміні розміру вікна
+
+window.addEventListener('resize', () => {
+  if (!loader.style.display || loader.style.display === 'none') {
+    if (window.innerWidth >= 1440) {
+      modalContant.style.display = 'flex';
+    } else {
+      modalContant.style.display = 'block';
+    }
+  }
+});
+
+function showLoader() {
+  loader.style.display = 'block';
+  modalContant.style.display = 'none';
+}
+
+function hideLoader() {
+  loader.style.display = 'none';
+  if (window.innerWidth >= 1440) {
+    modalContant.style.display = 'flex';
+  } else {
+    modalContant.style.display = 'block';
+  }
+}
   
   
