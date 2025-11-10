@@ -59,3 +59,5 @@ export function loadAndRenderFurniture() {
         console.error('Unexpected error:', error);
     }
 }
+
+  
