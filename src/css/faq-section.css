@@ -68,10 +68,14 @@
   color: #080c09;
 }
 
+.faq-section {
+  margin: 0 auto;
+  max-width: 375px;
+}
+
 @media screen and (min-width: 768px) and (max-width: 1439.98px) {
   .faq-section {
     max-width: 705px;
-    margin: 0 auto;
     padding: 48px 0;
   }
 
