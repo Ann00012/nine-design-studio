@@ -71,6 +71,7 @@ export function loadAndRenderFurniture() {
         hideLoader();
       })
       .catch(error => {
+        hideLoader();
         console.error('Error loading furniture list:', error);
         iziToast.error({
           title: 'Error',
@@ -96,9 +97,11 @@ export function resetPage() {
   page = 1;
 }
 function loadMoreFurniture() {
+  showLoader();
   page += 1;
   fetchFurnitureList(page, limit)
     .then(furnitureList => {
+      
       furnitureList.furnitures.forEach(furniture => {
         const card = createFurnitureCard(furniture);
         renderContainer.appendChild(card);
@@ -106,8 +109,10 @@ function loadMoreFurniture() {
       if (furnitureList.totalItems <= page * limit) {
         hideLoadMore();
       }
+      hideLoader();
     })
     .catch(error => {
+      hideLoader();
       console.error('Error loading more furniture:', error);
       iziToast.error({
         title: 'Error',

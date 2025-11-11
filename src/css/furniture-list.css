@@ -183,8 +183,11 @@
 }
 
 .loader-wrapper {
+   display: flex;           
+  justify-content: center; 
+  align-items: center;     
   padding: 40px 0;
-  justify-content: center;
+  min-height: 200px;       
 }
 
 .loader {
