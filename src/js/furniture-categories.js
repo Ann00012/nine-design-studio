@@ -1,4 +1,3 @@
-import s from 'accordion-js';
 import {
   renderFurnitureList,
   renderContainer,
@@ -39,7 +38,7 @@ function createCategoryOption(category) {
 }
 function renderCategoryOptions(categories) {
   categoryContainer.innerHTML =
-    '<li><button class="our-furniture-category-card" style="background-image: url(/img/our-furniture/1-x/all-products.jpg); background-image: image-set(url(/img/our-furniture/1-x/all-products.jpg) 1x, url(/img/our-furniture/2-x/all-products@2x.jpg) 2x);"><span class="our-furniture-category-card-label">Всі товари</span></button></li>';
+    '<li><button class="our-furniture-category-card is-active" style="background-image: url(/img/our-furniture/1-x/all-products.jpg); background-image: image-set(url(/img/our-furniture/1-x/all-products.jpg) 1x, url(/img/our-furniture/2-x/all-products@2x.jpg) 2x);"><span class="our-furniture-category-card-label">Всі товари</span></button></li>';
   categories.forEach(category => {
     const option = createCategoryOption(category);
     categoryContainer.appendChild(option);
@@ -98,4 +97,18 @@ categoryContainer.addEventListener('click', event => {
   } catch (error) {
     console.error('Unexpected error:', error);
   }
+});
+function toggleActiveCategory(selectedButton) {
+  const currentActive = categoryContainer.querySelector(
+    '.our-furniture-category-card.is-active'
+  );
+  if (currentActive) {
+    currentActive.classList.remove('is-active');
+  }
+  selectedButton.classList.add('is-active');
+}
+categoryContainer.addEventListener('click', event => {
+  const button = event.target.closest('.our-furniture-category-card');
+  if (!button) return;
+  toggleActiveCategory(button);
 });

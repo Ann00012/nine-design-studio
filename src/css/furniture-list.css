@@ -79,6 +79,18 @@
   background: rgba(0, 0, 0, 0.05);
 }
 
+.our-furniture-card-button:hover,
+.our-furniture-card-button:focus {
+  background-color: #fff;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05),
+    0px -2px 1px 0px rgba(0, 0, 0, 0.2) inset,
+    0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset,
+    0px 2px 1px 0px rgba(126, 78, 78, 0.25) inset,
+    0px 32px 24px 0px rgba(255, 255, 255, 0.05) inset;
+  outline: none;
+  opacity: 0.5;
+}
+
 .our-furniture-category-card::before {
   content: '';
   position: absolute;
@@ -116,8 +128,21 @@
   line-height: 1.6;
 }
 
-  @media screen and (min-width: 768px){
-  .our-furniture-container{
+.our-furniture-show-more-btn:hover,
+.our-furniture-show-more-btn:focus {
+  background-color: #b85f62;
+  color: #fff;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05),
+    0px -2px 1px 0px rgba(0, 0, 0, 0.2) inset,
+    0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset,
+    0px 2px 1px 0px rgba(126, 78, 78, 0.25) inset,
+    0px 32px 24px 0px rgba(255, 255, 255, 0.05) inset;
+  outline: none;
+  opacity: 0.5;
+}
+
+@media screen and (min-width: 768px) {
+  .our-furniture-container {
     padding: 48px 32px;
   }
 
@@ -127,14 +152,15 @@
     gap: 24px;
     margin-bottom: 32px;
   }
+
   .our-furniture-show-more-btn {
     width: 340px;
     margin: 0 auto;
   }
 }
 
-@media screen and (min-width: 1441px){
-  .our-furniture-container{
+@media screen and (min-width: 1440px) {
+  .our-furniture-container {
     padding: 80px 64px;
   }
 
@@ -145,11 +171,15 @@
     row-gap: 40px;
     margin-bottom: 32px;
   }
+
   .our-furniture-show-more-btn {
     width: 421px;
     margin: 0 auto;
-.our-furniture-show-more-btn.is-open {
-  display: flex;
+  }
+
+  .our-furniture-show-more-btn.is-open {
+    display: flex;
+  }
 }
 
 .loader-wrapper {
