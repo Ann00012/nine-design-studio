@@ -2,6 +2,7 @@ import axios from 'axios';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 import Raty from 'raty-js';
+import { openOrderModal } from './order-modal';
 
 const modalOverlay = document.querySelector('.modal-overlay');
 
@@ -22,6 +23,8 @@ const starRating = document.querySelector('.stars.star-rating');
 const loader = document.querySelector('.modal-loader');
 
 const modalContant = document.querySelector('.modal-contant');
+
+const orderModal = document.querySelector('.order-modal');
 
 let idOurFurnitureCardButton = null;
 
@@ -79,6 +82,38 @@ document.addEventListener('click', event => {
       descriptionModal.textContent = data.description;
 
       dimensionsModal.textContent = data.sizes;
+
+      // Збереження даних для форми
+
+      
+      modalContantButton.addEventListener('click', () => {
+        // Зчитування даних про колір інпуту
+        const checkedRadio = document.querySelector(
+          'input[name="option"]:checked'
+        );
+        const rgbColor = getComputedStyle(checkedRadio).backgroundColor;
+
+        // Перетворення rgb у hex
+        function rgbToHex(rgb) {
+          const result = rgb.match(/\d+/g); // отримує [r, g, b]
+          return (
+            '#' +
+            result
+              .map(x => {
+                const hex = parseInt(x).toString(16);
+                return hex.length === 1 ? '0' + hex : hex;
+              })
+              .join('')
+          );
+        }
+
+        const markerValueHex = rgbToHex(rgbColor);
+
+        remoweClassName(modalOverlay);
+        openOrderModal(idOurFurnitureCardButton, markerValueHex);
+      });
+
+
       hideLoader();
     })
     .catch(error => {
@@ -111,10 +146,6 @@ export function closeModal() {
     if (event.key === 'Escape') {
       remoweClassName(modalOverlay);
     }
-  });
-
-  modalContantButton.addEventListener('click', () => {
-    remoweClassName(modalOverlay);
   });
 }
 closeModal();
@@ -219,7 +250,6 @@ function createStars(el, score) {
     el.appendChild(star);
   }
 }
-
 
 // Округлення для зірок
 
