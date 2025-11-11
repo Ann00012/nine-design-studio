@@ -23,10 +23,14 @@ const loader = document.querySelector('.modal-loader');
 
 const modalContant = document.querySelector('.modal-contant');
 
+const body = document.querySelector('body')
+
 let idOurFurnitureCardButton = null;
 
 function addClassName(param) {
   param.classList.add('is-open');
+  body.style = 'overflow: hidden';
+  
 }
 
 // Відкриваю модальне вікно та зберігаю id для запиту на сервер
@@ -92,6 +96,7 @@ document.addEventListener('click', event => {
 
 function remoweClassName(param) {
   param.classList.remove('is-open');
+  body.style = '';
 }
 
 // Варіанти закриття модального вікна
