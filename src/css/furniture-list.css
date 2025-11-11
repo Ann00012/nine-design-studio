@@ -107,7 +107,7 @@
 }
 
 .our-furniture-show-more-btn {
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
