@@ -242,3 +242,15 @@
     transform: rotate(-360deg);
   }
 }
+
+
+.our-furniture-product-list-card{
+   flex: 1 1 310px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  background: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  box-sizing: border-box;
+}
