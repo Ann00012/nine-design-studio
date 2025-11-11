@@ -1,18 +1,22 @@
 import 'izitoast/dist/css/iziToast.min.css';
 import iziToast from 'izitoast';
 
-const API_BASE_URL = 'https://furniture-store-v2.b.goit.study';
+// const API_BASE_URL = 'https://furniture-store-v2.b.goit.study';
+const API_BASE_URL = 'https://furniture-store-v2.b.goit.study/api';
 
 const orderModal = document.querySelector('.order-modal');
-const closeButton = document.querySelector('.close-button');
+const closeButton = document.querySelector('.form-container .close-button');
 const orderForm = document.getElementById('orderForm');
 
 let currentFurnitureId = null;
 let currentMarkerValue = null;
 
-function openOrderModal(furnitureId, markerValue) {
+export function openOrderModal(furnitureId, markerValue) {
     currentFurnitureId = furnitureId;
     currentMarkerValue = markerValue;
+
+    console.log(currentFurnitureId, currentMarkerValue);
+    
 
     orderModal.classList.add('is-open'); 
     document.body.style.overflow = 'hidden'; 
@@ -68,6 +72,11 @@ orderForm.addEventListener('submit', async (event) => {
 
     orderData.furnitureId = currentFurnitureId;
     orderData.marker = currentMarkerValue;
+
+    orderData.modelId = currentFurnitureId;
+    orderData.color = currentMarkerValue;
+    delete orderData.furnitureId;
+    delete orderData.marker;
 
     if (!validateFormData(orderData)) {
         return;
