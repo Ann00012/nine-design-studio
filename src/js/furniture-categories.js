@@ -67,37 +67,67 @@ async function fetchFurnitureListByFilter(page, limit, category) {
   );
   return response;
 }
-categoryContainer.addEventListener('click', event => {
+// categoryContainer.addEventListener('click', event => {
+//   const button = event.target.closest('.our-furniture-category-card');
+//   if (!button) return;
+//   const selectedCategory = button.getAttribute('data-category') || null;
+//   try {
+//     resetPage();
+//     showLoader();
+//     fetchFurnitureListByFilter(page, limit, selectedCategory)
+//       .then(response => {
+//         if (!response.ok) {
+//           throw new Error('Failed to fetch furniture list by filter');
+//           hideLoader();
+//         }
+//         return response.json();
+//       })
+//       .then(furnitureList => {
+//         renderFurnitureList(furnitureList, renderContainer);
+//         hideLoader();
+//       })
+//       .catch(error => {
+//         console.error('Error loading filtered furniture list:', error);
+//         iziToast.error({
+//           title: 'Error',
+//           message: 'Failed to load furniture list. Please try again later.',
+//         });
+//         hideLoader();
+//       });
+//   } catch (error) {
+//     console.error('Unexpected error:', error);
+//   }
+// });
+categoryContainer.addEventListener('click', async event => {
   const button = event.target.closest('.our-furniture-category-card');
   if (!button) return;
+
+  toggleActiveCategory(button);
   const selectedCategory = button.getAttribute('data-category') || null;
+
+  resetPage();
+  renderContainer.innerHTML = ''; 
+  showLoader(); 
+
   try {
-    resetPage();
-    showLoader();
-    fetchFurnitureListByFilter(page, limit, selectedCategory)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Failed to fetch furniture list by filter');
-          hideLoader();
-        }
-        return response.json();
-      })
-      .then(furnitureList => {
-        renderFurnitureList(furnitureList, renderContainer);
-        hideLoader();
-      })
-      .catch(error => {
-        console.error('Error loading filtered furniture list:', error);
-        iziToast.error({
-          title: 'Error',
-          message: 'Failed to load furniture list. Please try again later.',
-        });
-        hideLoader();
-      });
+    const response = await fetchFurnitureListByFilter(page, limit, selectedCategory);
+    if (!response.ok) throw new Error('Failed to fetch furniture list');
+    const furnitureList = await response.json();
+
+    renderFurnitureList(furnitureList, renderContainer);
   } catch (error) {
-    console.error('Unexpected error:', error);
+    console.error('Error loading filtered furniture list:', error);
+    iziToast.error({
+      title: 'Error',
+      message: 'Не вдалося завантажити список меблів. Спробуйте пізніше.',
+    });
+  } finally {
+    hideLoader();
   }
 });
+
+
+
 function toggleActiveCategory(selectedButton) {
   const currentActive = categoryContainer.querySelector(
     '.our-furniture-category-card.is-active'
@@ -107,8 +137,8 @@ function toggleActiveCategory(selectedButton) {
   }
   selectedButton.classList.add('is-active');
 }
-categoryContainer.addEventListener('click', event => {
-  const button = event.target.closest('.our-furniture-category-card');
-  if (!button) return;
-  toggleActiveCategory(button);
-});
+// categoryContainer.addEventListener('click', event => {
+//   const button = event.target.closest('.our-furniture-category-card');
+//   if (!button) return;
+//   toggleActiveCategory(button);
+// });
