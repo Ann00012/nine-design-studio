@@ -97,6 +97,7 @@ export function resetPage() {
 }
 function loadMoreFurniture() {
   page += 1;
+   showLoader();
   fetchFurnitureList(page, limit)
     .then(furnitureList => {
       furnitureList.furnitures.forEach(furniture => {
@@ -106,6 +107,7 @@ function loadMoreFurniture() {
       if (furnitureList.totalItems <= page * limit) {
         hideLoadMore();
       }
+       hideLoader();
     })
     .catch(error => {
       console.error('Error loading more furniture:', error);
@@ -113,6 +115,7 @@ function loadMoreFurniture() {
         title: 'Error',
         message: 'Failed to load more furniture. Please try again later.',
       });
+       hideLoader();
     });
 }
 
