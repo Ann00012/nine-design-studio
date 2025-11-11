@@ -4,6 +4,22 @@ import 'swiper/css/bundle';
 import iziToast from 'izitoast';
 import raty from 'raty-js';
 
+
+
+
+// Код нище секція модального контенту
+import axios from 'axios';
+import {
+  closeModal,
+} from './js/details-modal';
+
+
+
+
+// Код вище секція модального контенту
+
+
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -28,3 +44,4 @@ loadAndRenderFurnitureCategories();
 loadAndRenderFurniture();
 
 // end of our-furniture section
+
