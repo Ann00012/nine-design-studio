@@ -17,9 +17,8 @@
 
 body {
   display: flex;
-  flex-direction: column;
-  min-width: 100vw;
-  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
   margin: 0;
 }
 
@@ -28,4 +27,13 @@ main {
 }
 main:has(.back-link) {
   text-align: center;
+}
+
+.body-container {
+  width: 1312px;
+  display: flex;
+  flex-direction: column;
+  min-width: 100vw;
+  min-height: 100vh;
+  margin: 0;
 }
