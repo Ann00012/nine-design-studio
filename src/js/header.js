@@ -5,8 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link, .btn-buy, .mobile-buy');
   const logo = document.querySelector('.logo');
   const furnitureGrid = document.querySelector('.furniture-grid');
+  const menuBackdrop = document.querySelector('.menu-backdrop'); 
 
- 
+  
   let loader = document.querySelector('.loader');
   if (!loader) {
     loader = document.createElement('div');
@@ -37,8 +38,11 @@ document.addEventListener('DOMContentLoaded', () => {
     burgerBtn.setAttribute('aria-expanded', 'true');
     burgerBtn.style.display = 'none';
     closeBtn.style.display = 'block';
+    if (menuBackdrop) menuBackdrop.classList.add('is-active'); // показати бекдроп
     closeBtn.focus();
   };
+
+  
   const closeMenu = () => {
     if (!mobileMenu || !burgerBtn || !closeBtn) return;
     mobileMenu.classList.remove('is-open');
@@ -47,11 +51,14 @@ document.addEventListener('DOMContentLoaded', () => {
     burgerBtn.setAttribute('aria-expanded', 'false');
     burgerBtn.style.display = '';
     closeBtn.style.display = 'none';
+    if (menuBackdrop) menuBackdrop.classList.remove('is-active'); 
     burgerBtn.focus();
   };
 
+ 
   if (burgerBtn) burgerBtn.addEventListener('click', openMenu);
   if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+  if (menuBackdrop) menuBackdrop.addEventListener('click', closeMenu);
 
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('is-open')) closeMenu();
