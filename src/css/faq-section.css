@@ -1,0 +1,110 @@
+.faq-section {
+  padding-bottom: 48px;
+  padding-top: 48px;
+}
+
+.faq-container {
+  max-width: 375px;
+  margin: 0 auto;
+}
+
+.faq-title {
+  margin-bottom: 32px;
+  text-align: center;
+  font-size: 36px;
+}
+
+.accordion-container .ac {
+  margin-bottom: 0;
+  border: 0;
+  border-top: 1px solid rgba(8, 12, 9, 0.15);
+}
+
+.accordion-container .ac:last-child {
+  border-bottom: 1px solid rgba(8, 12, 9, 0.15);
+}
+
+.accordion-container .ac .ac-trigger {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 20px 6px 20px 0px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #080c09;
+}
+
+.accordion-container .ac .ac-trigger::after {
+  display: none;
+}
+
+.accordion-container .ac .ac-trigger:active,
+.accordion-container .ac .ac-trigger:hover,
+.accordion-container .ac .ac-trigger:focus {
+  color: #080c09;
+  background: none;
+  box-shadow: none;
+}
+
+.accordion-container .ac-trigger .chevron-down {
+  margin-left: 24px;
+  justify-self: end;
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+}
+
+.accordion-container .ac.is-active .ac-trigger .chevron-down {
+  transform: rotate(180deg);
+}
+
+.faq-section .accordion-container .ac .ac-panel .ac-text {
+  padding-top: 0;
+  padding-left: 0;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #080c09;
+}
+
+@media screen and (max-width: 767.98px) {
+  .faq-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1439.98px) {
+  .faq-container {
+    max-width: 705px;
+  }
+
+  .accordion-container .ac .ac-trigger {
+    padding: 21.5px 6px 21.5px 0px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .faq-section {
+    padding-bottom: 80px;
+    padding-top: 80px;
+  }
+
+  .faq-container {
+    max-width: 865px;
+  }
+
+  .faq-title {
+    font-size: 48px;
+  }
+
+  .accordion-container .ac .ac-trigger:hover {
+    cursor: pointer;
+  }
+}

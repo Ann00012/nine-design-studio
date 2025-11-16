@@ -1,18 +1,27 @@
 .order-modal {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999; 
+    visibility: hidden; 
+    opacity: 0;        
+    pointer-events: none; 
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
     padding: 64px 20px;
-    background-color: #f0f0f0; 
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    background-color: rgba(46, 47, 66, 0.4);
+    background-color: rgba(46, 47, 66, 0.4); 
     box-sizing: border-box;
+    overflow-y: scroll; 
 }
 
 .form-container {
     position: relative; 
     background-color: #ffffff;
-    padding: 40px 24px;
+    padding: 64px 20px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     box-sizing: border-box;
@@ -26,8 +35,8 @@
     position: absolute;
     top: 16px; 
     right: 16px; 
-    width: 24px; 
-    height: 24px;
+    width: 32px; 
+    height:32px;
     background-color: transparent;
     border: none;
     padding: 0;
@@ -46,25 +55,30 @@
     font-weight: 700;
     text-align: center;
     margin-top: 0;
-    margin-bottom: 24px;
-    color: #333;
+    margin-bottom: 48px;
+    color: rgba(8, 12, 9, 1);
+     line-height: 120%;
+  letter-spacing: 0.01em;
 }
 .form-group { margin-bottom: 20px; }
 .form-group label {
     display: block;
     font-size: 16px;
-    color: #555;
+    line-height: 160%;
+    color: rgba(8, 12, 9, 1);
+    letter-spacing: 0;
     margin-bottom: 8px;
 }
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 12px 16px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
+    padding: 8px 12px;
+    border: 1px solid rgba(8, 12, 9, 0.15);
+    border-radius: 12px;
+    background-color: rgba(8, 12, 9, 0.05);
     font-size: 16px;
     box-sizing: border-box;
+    
 }
 .form-group input::placeholder,
 .form-group textarea::placeholder { color: #aaa; }
@@ -83,10 +97,22 @@
     border-radius: 100px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    box-shadow: 
+        0px 1px 2px 0px rgba(8, 12, 9, 0.05),
+        inset 0px -2px 1px 0px rgba(0, 0, 0, 0.2),
+        inset 0px 0px 0px 1px rgba(8, 12, 9, 0.15),
+        inset 0px 2px 1px 0px rgba(255, 255, 255, 0.2), 
+        inset 0px 32px 24px 0px rgba(255, 255, 255, 0.05);
 }
 
 .submit-btn:focus,
 .submit-btn:hover { background-color: #a32e36; }
+
+.order-modal.is-open {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto; 
+}
 
 @media screen and (min-width: 768px) {
   
