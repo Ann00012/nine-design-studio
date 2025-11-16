@@ -97,6 +97,12 @@
     border-radius: 100px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    box-shadow: 
+        0px 1px 2px 0px rgba(8, 12, 9, 0.05),
+        inset 0px -2px 1px 0px rgba(0, 0, 0, 0.2),
+        inset 0px 0px 0px 1px rgba(8, 12, 9, 0.15),
+        inset 0px 2px 1px 0px rgba(255, 255, 255, 0.2), 
+        inset 0px 32px 24px 0px rgba(255, 255, 255, 0.05);
 }
 
 .submit-btn:focus,
