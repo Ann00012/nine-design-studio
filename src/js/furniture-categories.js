@@ -38,7 +38,7 @@ function createCategoryOption(category) {
 }
 function renderCategoryOptions(categories) {
   categoryContainer.innerHTML =
-    '<li><button class="our-furniture-category-card is-active" style="background-image: url(/img/our-furniture/1-x/all-products.jpg); background-image: image-set(url(/img/our-furniture/1-x/all-products.jpg) 1x, url(/img/our-furniture/2-x/all-products@2x.jpg) 2x);"><span class="our-furniture-category-card-label">Всі товари</span></button></li>';
+    '<li><button class="our-furniture-category-card is-active" style="background-image: url(/src/img/our-furniture/1-x/all-products.jpg); background-image: image-set(url(/src/img/our-furniture/1-x/all-products.jpg) 1x, url(/src/img/our-furniture/2-x/all-products@2x.jpg) 2x);"><span class="our-furniture-category-card-label">Всі товари</span></button></li>';
   categories.forEach(category => {
     const option = createCategoryOption(category);
     categoryContainer.appendChild(option);
