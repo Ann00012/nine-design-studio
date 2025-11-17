@@ -1,5 +1,3 @@
-import s from 'accordion-js';
-
 export const FURNITURE_API_URL =
   'https://furniture-store-v2.b.goit.study/api/furnitures';
 export const renderContainer = document.querySelector(
@@ -21,7 +19,7 @@ export function createFurnitureCard(furniture) {
   const card = document.createElement('li');
   card.className = 'our-furniture-product-list-card';
   card.innerHTML = `
-        <img src="${furniture.images[0]}" alt="${
+        <img width="340px" height="250px" src="${furniture.images[0]}" alt="${
     furniture.name
   }" class="our-furniture-card-image"/>
         <h3 class="our-furniture-card-title">${furniture.name}</h3>
@@ -40,13 +38,16 @@ export function createFurnitureCard(furniture) {
     `;
   return card;
 }
-export function showLoader() {
-  const loader = document.querySelector('.loader-wrapper');
+export function showLoader(loaderId) {
+  const loader = document.querySelector(`#${loaderId}`);
   if (loader) loader.style.display = 'flex';
+  else {
+    console.log(`error showing loader, class is ${loaderId}`)
+  }
 }
 
-export function hideLoader() {
-  const loader = document.querySelector('.loader-wrapper');
+export function hideLoader(loaderId) {
+  const loader = document.querySelector(`#${loaderId}`);
   if (loader) loader.style.display = 'none';
 }
 
@@ -63,15 +64,12 @@ export function renderFurnitureList(furnitureList, container) {
   });
 }
 export function loadAndRenderFurniture() {
-  showLoader();
   try {
     fetchFurnitureList(page, limit)
       .then(furnitureList => {
         renderFurnitureList(furnitureList, renderContainer);
-        hideLoader();
       })
       .catch(error => {
-        hideLoader();
         console.error('Error loading furniture list:', error);
         iziToast.error({
           title: 'Error',
@@ -97,7 +95,7 @@ export function resetPage() {
   page = 1;
 }
 function loadMoreFurniture() {
-  showLoader();
+  showLoader("loaderShowMore");
   page += 1;
   fetchFurnitureList(page, limit)
     .then(furnitureList => {
@@ -109,10 +107,10 @@ function loadMoreFurniture() {
       if (furnitureList.totalItems <= page * limit) {
         hideLoadMore();
       }
-      hideLoader();
+      hideLoader("loaderShowMore");
     })
     .catch(error => {
-      hideLoader();
+      hideLoader("loaderShowMore");
       console.error('Error loading more furniture:', error);
       iziToast.error({
         title: 'Error',

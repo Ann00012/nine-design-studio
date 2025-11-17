@@ -2,7 +2,8 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
-  margin-bottom: 40px;
+  max-width: 335px;
+  margin: 0 auto 40px;
 }
 
 .our-furniture-category-card {
@@ -29,11 +30,13 @@
   color: inherit;
   width: 100%;
   height: 100%;
+  max-width: 160px;
+  max-height: 122px;
   border: transparent;
 }
 
 .our-furniture-category-card.is-active {
-  border: 8px solid #6B0609;
+  border: 8px solid #6b0609;
 }
 
 .our-furniture-category-card::before {
@@ -51,107 +54,155 @@
 
 [data-category='66504a50a1b2c3d4e5f6a7b8'] {
   background-image: url('/img/our-furniture/1-x/soft-furniture.jpg');
-  background-image: -webkit-image-set(url('/img/our-furniture/1-x/soft-furniture.jpg') 1x,
-      url('/img/our-furniture/2-x/soft-furniture@2x.jpg') 2x);
-  background-image: image-set(url('/img/our-furniture/1-x/soft-furniture.jpg') 1x,
-      url('/img/our-furniture/2-x/soft-furniture@2x.jpg') 2x);
+  background-image: -webkit-image-set(
+    url('/img/our-furniture/1-x/soft-furniture.jpg') 1x,
+    url('/img/our-furniture/2-x/soft-furniture@2x.jpg') 2x
+  );
+  background-image: image-set(
+    url('/img/our-furniture/1-x/soft-furniture.jpg') 1x,
+    url('/img/our-furniture/2-x/soft-furniture@2x.jpg') 2x
+  );
 }
 
 [data-category='66504a50a1b2c3d4e5f6a7b9'] {
   background-image: url('/img/our-furniture/1-x/closets-and-storage.jpg');
-  background-image: -webkit-image-set(url('/img/our-furniture/1-x/closets-and-storage.jpg') 1x,
-      url('/img/our-furniture/2-x/closets-and-storage@2x.jpg') 2x);
-  background-image: image-set(url('/img/our-furniture/1-x/closets-and-storage.jpg') 1x,
-      url('/img/our-furniture/2-x/closets-and-storage@2x.jpg') 2x);
+  background-image: -webkit-image-set(
+    url('/img/our-furniture/1-x/closets-and-storage.jpg') 1x,
+    url('/img/our-furniture/2-x/closets-and-storage@2x.jpg') 2x
+  );
+  background-image: image-set(
+    url('/img/our-furniture/1-x/closets-and-storage.jpg') 1x,
+    url('/img/our-furniture/2-x/closets-and-storage@2x.jpg') 2x
+  );
 }
 
 [data-category='66504a50a1b2c3d4e5f6a7ba'] {
   background-image: url('/img/our-furniture/1-x/beds-and-mattresses.jpg');
-  background-image: -webkit-image-set(url('/img/our-furniture/1-x/beds-and-mattresses.jpg') 1x,
-      url('/img/our-furniture/2-x/beds-and-mattresses@2x.jpg') 2x);
-  background-image: image-set(url('/img/our-furniture/1-x/beds-and-mattresses.jpg') 1x,
-      url('/img/our-furniture/2-x/beds-and-mattresses@2x.jpg') 2x);
+  background-image: -webkit-image-set(
+    url('/img/our-furniture/1-x/beds-and-mattresses.jpg') 1x,
+    url('/img/our-furniture/2-x/beds-and-mattresses@2x.jpg') 2x
+  );
+  background-image: image-set(
+    url('/img/our-furniture/1-x/beds-and-mattresses.jpg') 1x,
+    url('/img/our-furniture/2-x/beds-and-mattresses@2x.jpg') 2x
+  );
 }
 
 [data-category='66504a50a1b2c3d4e5f6a7bb'] {
   background-image: url('/img/our-furniture/1-x/tables.jpg');
-  background-image: -webkit-image-set(url('/img/our-furniture/1-x/tables.jpg') 1x,
-      url('/img/our-furniture/2-x/tables@2x.jpg') 2x);
-  background-image: image-set(url('/img/our-furniture/1-x/tables.jpg') 1x,
-      url('/img/our-furniture/2-x/tables@2x.jpg') 2x);
+  background-image: -webkit-image-set(
+    url('/img/our-furniture/1-x/tables.jpg') 1x,
+    url('/img/our-furniture/2-x/tables@2x.jpg') 2x
+  );
+  background-image: image-set(
+    url('/img/our-furniture/1-x/tables.jpg') 1x,
+    url('/img/our-furniture/2-x/tables@2x.jpg') 2x
+  );
 }
 
 [data-category='66504a50a1b2c3d4e5f6a7bc'] {
   background-image: url('/img/our-furniture/1-x/chairs-and-stools.jpg');
-  background-image: -webkit-image-set(url('/img/our-furniture/1-x/chairs-and-stools.jpg') 1x,
-      url('/img/our-furniture/2-x/chairs-and-stools@2x.jpg') 2x);
-  background-image: image-set(url('/img/our-furniture/1-x/chairs-and-stools.jpg') 1x,
-      url('/img/our-furniture/2-x/chairs-and-stools@2x.jpg') 2x);
+  background-image: -webkit-image-set(
+    url('/img/our-furniture/1-x/chairs-and-stools.jpg') 1x,
+    url('/img/our-furniture/2-x/chairs-and-stools@2x.jpg') 2x
+  );
+  background-image: image-set(
+    url('/img/our-furniture/1-x/chairs-and-stools.jpg') 1x,
+    url('/img/our-furniture/2-x/chairs-and-stools@2x.jpg') 2x
+  );
 }
 
 [data-category='66504a50a1b2c3d4e5f6a7bd'] {
   background-image: url('/img/our-furniture/1-x/kitchens.jpg');
-  background-image: -webkit-image-set(url('/img/our-furniture/1-x/kitchens.jpg') 1x,
-      url('/img/our-furniture/2-x/kitchens@2x.jpg') 2x);
-  background-image: image-set(url('/img/our-furniture/1-x/kitchens.jpg') 1x,
-      url('/img/our-furniture/2-x/kitchens@2x.jpg') 2x);
+  background-image: -webkit-image-set(
+    url('/img/our-furniture/1-x/kitchens.jpg') 1x,
+    url('/img/our-furniture/2-x/kitchens@2x.jpg') 2x
+  );
+  background-image: image-set(
+    url('/img/our-furniture/1-x/kitchens.jpg') 1x,
+    url('/img/our-furniture/2-x/kitchens@2x.jpg') 2x
+  );
 }
 
 [data-category='66504a50a1b2c3d4e5f6a7be'] {
   background-image: url('/img/our-furniture/1-x/childrens-furniture.jpg');
-  background-image: -webkit-image-set(url('/img/our-furniture/1-x/childrens-furniture.jpg') 1x,
-      url('/img/our-furniture/2-x/childrens-furniture@2x.jpg') 2x);
-  background-image: image-set(url('/img/our-furniture/1-x/childrens-furniture.jpg') 1x,
-      url('/img/our-furniture/2-x/childrens-furniture@2x.jpg') 2x);
+  background-image: -webkit-image-set(
+    url('/img/our-furniture/1-x/childrens-furniture.jpg') 1x,
+    url('/img/our-furniture/2-x/childrens-furniture@2x.jpg') 2x
+  );
+  background-image: image-set(
+    url('/img/our-furniture/1-x/childrens-furniture.jpg') 1x,
+    url('/img/our-furniture/2-x/childrens-furniture@2x.jpg') 2x
+  );
 }
 
 [data-category='66504a50a1b2c3d4e5f6a7bf'] {
   background-image: url('/img/our-furniture/1-x/office-furniture.jpg');
-  background-image: -webkit-image-set(url('/img/our-furniture/1-x/office-furniture.jpg') 1x,
-      url('/img/our-furniture/2-x/office-furniture@2x.jpg') 2x);
-  background-image: image-set(url('/img/our-furniture/1-x/office-furniture.jpg') 1x,
-      url('/img/our-furniture/2-x/office-furniture@2x.jpg') 2x);
+  background-image: -webkit-image-set(
+    url('/img/our-furniture/1-x/office-furniture.jpg') 1x,
+    url('/img/our-furniture/2-x/office-furniture@2x.jpg') 2x
+  );
+  background-image: image-set(
+    url('/img/our-furniture/1-x/office-furniture.jpg') 1x,
+    url('/img/our-furniture/2-x/office-furniture@2x.jpg') 2x
+  );
 }
 
 [data-category='66504a50a1b2c3d4e5f6a7c0'] {
   background-image: url('/img/our-furniture/1-x/entryway-furniture.jpg');
-  background-image: -webkit-image-set(url('/img/our-furniture/1-x/entryway-furniture.jpg') 1x,
-      url('/img/our-furniture/2-x/entryway-furniture@2x.jpg') 2x);
-  background-image: image-set(url('/img/our-furniture/1-x/entryway-furniture.jpg') 1x,
-      url('/img/our-furniture/2-x/entryway-furniture@2x.jpg') 2x);
+  background-image: -webkit-image-set(
+    url('/img/our-furniture/1-x/entryway-furniture.jpg') 1x,
+    url('/img/our-furniture/2-x/entryway-furniture@2x.jpg') 2x
+  );
+  background-image: image-set(
+    url('/img/our-furniture/1-x/entryway-furniture.jpg') 1x,
+    url('/img/our-furniture/2-x/entryway-furniture@2x.jpg') 2x
+  );
 }
 
 [data-category='66504a50a1b2c3d4e5f6a7c1'] {
   background-image: url('/img/our-furniture/1-x/bathroom-furniture.jpg');
-  background-image: -webkit-image-set(url('/img/our-furniture/1-x/bathroom-furniture.jpg') 1x,
-      url('/img/our-furniture/2-x/bathroom-furniture@2x.jpg') 2x);
-  background-image: image-set(url('/img/our-furniture/1-x/bathroom-furniture.jpg') 1x,
-      url('/img/our-furniture/2-x/bathroom-furniture@2x.jpg') 2x);
+  background-image: -webkit-image-set(
+    url('/img/our-furniture/1-x/bathroom-furniture.jpg') 1x,
+    url('/img/our-furniture/2-x/bathroom-furniture@2x.jpg') 2x
+  );
+  background-image: image-set(
+    url('/img/our-furniture/1-x/bathroom-furniture.jpg') 1x,
+    url('/img/our-furniture/2-x/bathroom-furniture@2x.jpg') 2x
+  );
 }
 
 [data-category='66504a50a1b2c3d4e5f6a7c2'] {
   background-image: url('/img/our-furniture/1-x/outdoor-furniture.jpg');
-  background-image: -webkit-image-set(url('/img/our-furniture/1-x/outdoor-furniture.jpg') 1x,
-      url('/img/our-furniture/2-x/outdoor-furniture@2x.jpg') 2x);
-  background-image: image-set(url('/img/our-furniture/1-x/outdoor-furniture.jpg') 1x,
-      url('/img/our-furniture/2-x/outdoor-furniture@2x.jpg') 2x);
+  background-image: -webkit-image-set(
+    url('/img/our-furniture/1-x/outdoor-furniture.jpg') 1x,
+    url('/img/our-furniture/2-x/outdoor-furniture@2x.jpg') 2x
+  );
+  background-image: image-set(
+    url('/img/our-furniture/1-x/outdoor-furniture.jpg') 1x,
+    url('/img/our-furniture/2-x/outdoor-furniture@2x.jpg') 2x
+  );
 }
 
 [data-category='66504a50a1b2c3d4e5f6a7c3'] {
   background-image: url('/img/our-furniture/1-x/decor-and-accessories.jpg');
-  background-image: -webkit-image-set(url('/img/our-furniture/1-x/decor-and-accessories.jpg') 1x,
-      url('/img/our-furniture/2-x/decor-and-accessories@2x.jpg') 2x);
-  background-image: image-set(url('/img/our-furniture/1-x/decor-and-accessories.jpg') 1x,
-      url('/img/our-furniture/2-x/decor-and-accessories@2x.jpg') 2x);
+  background-image: -webkit-image-set(
+    url('/img/our-furniture/1-x/decor-and-accessories.jpg') 1x,
+    url('/img/our-furniture/2-x/decor-and-accessories@2x.jpg') 2x
+  );
+  background-image: image-set(
+    url('/img/our-furniture/1-x/decor-and-accessories.jpg') 1x,
+    url('/img/our-furniture/2-x/decor-and-accessories@2x.jpg') 2x
+  );
 }
-
 
 @media screen and (min-width: 768px) {
   .our-furniture-categories {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
-    margin-bottom: 40px;
+    margin: 0 auto 40px;
+    max-width: 704px;
   }
 }
 
@@ -160,6 +211,7 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 24px;
-    margin-bottom: 40px;
+    max-width: 1312px;
+    margin: 0 auto 40px;
   }
 }
